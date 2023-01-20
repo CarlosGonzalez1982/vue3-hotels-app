@@ -123,7 +123,7 @@ Inicialización del repositorio:
  $ git add .
  $ git commit -m "feat: first commit"
  $ git branch -M master
- $ git remote add origin git@github.com:CarlosGonzalez1982/vue3-hotels-app.git
+ $ git remote add origin git@github.com:CarlosGonzalez1982/vue3-skeleton.git
  $ git push -u origin master
  ```
 
