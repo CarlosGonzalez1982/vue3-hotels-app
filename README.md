@@ -1,8 +1,9 @@
-# VUE 3 + PINIA + TanStack Template
+# VUE 3 + PINIA + VueQuery Template
 
 # Proyecto Hotels-Pinia-App
 
 Proyecto de búsqueda de hoteles en una parte pública y reserva de hoteles una vez registrado y logado
+
 
 ##Primeros pasos
 
@@ -10,12 +11,16 @@ Instalaciones obligatorias:
 
 * [NodeJS](https://nodejs.org/es/)
 * [Vue-CLI](https://cli.vuejs.org/guide/installation.html)
+* [Sass](https://sass-lang.com/install)
+`yarn add -D sass`
 
 Instalaciones recomendadas:
 
 * [Postman](https://www.postman.com/downloads/)
 * [Vue DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) 
 * [Json Viewer](https://chrome.google.com/webstore/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc) 
+* [Normalize](https://necolas.github.io/normalize.css/)
+`yarn add normalize.css`
 
 
 ## Skeleton Theme Template
@@ -57,18 +62,36 @@ Instalaciones recomendadas:
    │	│
    │	└── router/
    │
-   ├── assets
+   ├── assets/
    │    │
-   │    ├── fonts
+   │    ├── fonts/
    │    │
-   │    ├── img
+   │    ├── img/
    │    │
-   │    └── i18n
+   │    └── i18n/
    │	   
-   ├── environments
+   ├── environments/
    │	
-   └── styles
+   └── styles/
+        │    
+        ├── utilities/
+        │
+        ├── vendor/
+        │
+        ├── vendor-extensions/
+        │
+        ├── base/
+        │
+        ├── layout/
+        │
+        ├── components/
+        │
+        ├── pages/
+        │
+        └── themes/
 ```
+
+Estructura generada en base a **Clean Architecture** y a recomendaciones de Seniors Dev para proyectos de medio-largo plazo, que puedan crecer en contenido
 
 **dashboard** _siempre_ es el componente principal del que descienden el resto de componentes
 
@@ -103,6 +126,7 @@ Inicialización del repositorio:
  $ git remote add origin git@github.com:CarlosGonzalez1982/vue3-hotels-app.git
  $ git push -u origin master
  ```
+
 
 ## Project Setup
 

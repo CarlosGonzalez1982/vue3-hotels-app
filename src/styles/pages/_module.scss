@@ -1,0 +1,14 @@
+/**
+ * Contains page-specific styling (if necessary)
+ *
+ * Call this scss as the pages you will use to
+ */
+
+/* Uncomment or include the GLOBAL import you need */
+//@import 'boilerplate_modules/_home';
+//@import 'boilerplate_modules/_contact';
+//@import 'boilerplate_modules/_support';
+
+@import 'boilerplate_modules/_homePage';
+@import 'boilerplate_modules/_aboutPage';
+
