@@ -2,24 +2,21 @@
 
 # Proyecto Hotels-Pinia-App
 
-Este proyecto es de búsqueda de hoteles en una parte pública y reserva de hoteles una vez registrado y logado
+Proyecto de búsqueda de hoteles en una parte pública y reserva de hoteles una vez registrado y logado
 
 ##Primeros pasos
 
 Instalaciones obligatorias:
 
-```sh
-Node JS --> https://nodejs.org/es/
-Vue-CLI --> https://cli.vuejs.org/guide/installation.html
-```
+* [NodeJS](https://nodejs.org/es/)
+* [Vue-CLI](https://cli.vuejs.org/guide/installation.html)
 
 Instalaciones recomendadas:
 
-```sh
-Postman --> https://www.postman.com/downloads/
-Vue DevTools --> https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en
-Json Viewer --> https://chrome.google.com/webstore/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc
-```
+* [Postman](https://www.postman.com/downloads/)
+* [Vue DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) 
+* [Json Viewer](https://chrome.google.com/webstore/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc) 
+
 
 ## Skeleton Theme Template
 
