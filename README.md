@@ -92,8 +92,8 @@ Establecer tu identidad:
 Clonar proyecto:
 
  ```bash
- $ git clone git@github.com:the-cocktail/cepsa-comercial-front.git
- $ cd cepsa-comercial-front/
+ $ git clone git@github.com:CarlosGonzalez1982/vue3-hotels-app.git
+ $ cd vue3-hotels-app/
  ```
 
 Inicialización del repositorio:
@@ -102,6 +102,8 @@ Inicialización del repositorio:
  $ git init
  $ git add .
  $ git commit -m "feat: first commit"
+ $ git branch -M master
+ $ git remote add origin git@github.com:CarlosGonzalez1982/vue3-hotels-app.git
  $ git push -u origin master
  ```
 
