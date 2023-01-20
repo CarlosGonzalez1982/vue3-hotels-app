@@ -4,4 +4,4 @@
     </div>
 </template>
 
-<style src="./AboutPage.component.scss" lang="scss"s scoped/>
+<style src="./AboutPage.component.scss" lang="scss" scoped/>
