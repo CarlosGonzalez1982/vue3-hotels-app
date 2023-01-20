@@ -1,7 +1,8 @@
-import {createRouter, createWebHistory} from 'vue-router'
-import HomePage from '@/app/components/home-page/HomePage.component.vue'
+import {createRouter, createWebHistory} from 'vue-router';
+import HomePage from '@/app/components/home-page/HomePage.component.vue';
 
 const router = createRouter({
+
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
@@ -18,6 +19,6 @@ const router = createRouter({
             component: () => import('../components/about-page/AboutPage.component.vue')
         }
     ]
-})
+});
 
-export default router
+export default router;

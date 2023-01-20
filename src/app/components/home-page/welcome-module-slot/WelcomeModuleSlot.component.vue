@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import WelcomeItem from '@/app/components/shared-components/welcome-item/WelcomeItem.component.vue'
-import DocumentationIcon from '@/assets/img/icons/IconDocumentation.vue'
-import ToolingIcon from '@/assets/img/icons/IconTooling.vue'
-import EcosystemIcon from '@/assets/img/icons/IconEcosystem.vue'
-import CommunityIcon from '@/assets/img/icons/IconCommunity.vue'
-import SupportIcon from '@/assets/img/icons/IconSupport.vue'
+import WelcomeItem from '@/app/components/shared-components/welcome-item/WelcomeItem.component.vue';
+import DocumentationIcon from '@/assets/img/icons/IconDocumentation.vue';
+import ToolingIcon from '@/assets/img/icons/IconTooling.vue';
+import EcosystemIcon from '@/assets/img/icons/IconEcosystem.vue';
+import CommunityIcon from '@/assets/img/icons/IconCommunity.vue';
+import SupportIcon from '@/assets/img/icons/IconSupport.vue';
 </script>
 
 <template>
@@ -12,8 +12,8 @@ import SupportIcon from '@/assets/img/icons/IconSupport.vue'
         <template #icon>
             <DocumentationIcon/>
         </template>
-        <template #heading>Documentation</template>
 
+        <template #heading>Documentation</template>
         Vue’s
         <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
         provides you with all information you need to get started.
