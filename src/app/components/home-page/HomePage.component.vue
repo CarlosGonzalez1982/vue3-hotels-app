@@ -3,7 +3,5 @@ import WelcomeModuleSlot from '@/app/components/home-page/welcome-module-slot/We
 </script>
 
 <template>
-    <main>
-        <WelcomeModuleSlot/>
-    </main>
+    <WelcomeModuleSlot/>
 </template>

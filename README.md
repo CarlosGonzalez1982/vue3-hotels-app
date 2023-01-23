@@ -13,6 +13,8 @@ Instalaciones obligatorias:
 * [Vue-CLI](https://cli.vuejs.org/guide/installation.html)
 * [Sass](https://sass-lang.com/install)
 `yarn add -D sass`
+* [i18n](https://vue-i18n.intlify.dev/)
+`yarn add vue-i18n@9`
 
 Instalaciones recomendadas:
 
@@ -68,7 +70,7 @@ Instalaciones recomendadas:
    │    │
    │    ├── img/
    │    │
-   │    └── i18n/
+   │    └── locales/
    │	   
    ├── environments/
    │	

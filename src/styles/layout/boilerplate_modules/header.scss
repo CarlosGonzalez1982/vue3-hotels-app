@@ -1,0 +1,105 @@
+/**
+ * Navbar.component.vue
+ */
+.header__position--fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.header__border--line {
+  border-bottom: 1px solid $c-green-light;
+}
+
+.header__links-align {
+  @include flex_center;
+  position: relative;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $container;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.topnav.responsive {
+  @include media($tablet) {
+    position: relative;
+  }
+}
+
+.topnav.responsive .icon {
+  @include media($tablet) {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.topnav.responsive a {
+  @include media($tablet) {
+    display: block;
+    float: none;
+    text-align: left;
+  }
+}
+
+.topnav a {
+  color: $c-body--background;
+  display: block;
+  float: left;
+  font-size: px2rem(17);
+  padding: 26px 16px;
+  text-align: center;
+  text-decoration: none;
+  &:not(:first-child) {
+    @include media($tablet) {
+      display: none;
+    }
+  }
+  &:hover {
+    background-color: $c-green-light;
+    color: $c-black;
+  }
+  &:hover:first-child {
+    background-color: transparent;
+  }
+  &:first-child {
+    padding: 14px 16px;
+  }
+}
+
+.topnav a.icon {
+  @include media($tablet) {
+    display: block;
+    float: right;
+  }
+}
+
+.topnav a.router-link-active {
+  color: $c-green-light;
+  &:hover {
+    background-color: $c-green-light;
+    color: $c-black;
+  }
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.pinia-container {
+  height: px2rem(50);
+  width: px2rem(50);
+}
+
+.web-app--version {
+  font-size: px2rem(10);
+  left: 20px;
+  position: fixed;
+  top: 20px;
+}

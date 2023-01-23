@@ -1,21 +1,14 @@
 <script setup lang="ts">
-import {RouterLink, RouterView} from 'vue-router';
-import HelloWorld from '@/app/components/dashboard/HelloWorld.component.vue';
+import { RouterView } from 'vue-router';
+import { routeLinks } from '@/app/router/link-routes';
+import NavbarOptions from '@/app/components/navbar-options/NavbarOptions.component.vue';
 </script>
 
 <template>
-    <header>
-        <img alt="Vue logo" class="logo" src="@/assets/img/icons/logoVue.svg" width="125" height="125"/>
-        <div class="wrapper">
-            <HelloWorld msg="You did it!"/>
-            <nav>
-                <RouterLink to="/">Home</RouterLink>
-                <RouterLink to="/about">About</RouterLink>
-            </nav>
-        </div>
-    </header>
-
-    <RouterView/>
+    <NavbarOptions title="Pinia App Test" :links="routeLinks"/>
+    <main class="web-app--container">
+        <RouterView/>
+    </main>
 </template>
 
 <style lang="scss" src="./main.scss"/>

@@ -1,3 +1,25 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-weight: normal;
+  margin: 0;
+  position: relative;
+}
+
+body {
+  background: $c-black;
+  color: $c-text;
+  font-family: $f-roboto--basic;
+  font-size: px2rem(14);
+  line-height: 1.6;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  transition: color 0.5s, background-color 0.5s;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 ._margin10-l {
   margin-left: 10px;
 }

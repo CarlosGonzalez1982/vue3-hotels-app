@@ -14,11 +14,29 @@
 @mixin flex_start {
   display: flex;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: center;
+}
+
+@mixin flex_end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 @mixin title {
   text-align: center;
-  color: $color-blue--dark;
+  color: $c-blue--dark;
   font-weight: bold;
+}
+
+@mixin media($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// px2rem
+$browser-context: 16;
+@function px2rem($pixels, $context: $browser-context) {
+  @return ($pixels / $context) * 1rem;
 }

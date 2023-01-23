@@ -1,4 +1,4 @@
-.containerNav {
+/*.containerNav {
   background-color: #eee;
   height: 100vh;
 }
@@ -8,4 +8,10 @@
     background-color: #eee;
     height: auto;
   }
+}*/
+
+.web-app--container {
+  margin: 0 auto;
+  max-width: $container;
+  padding: 80px 32px;
 }
