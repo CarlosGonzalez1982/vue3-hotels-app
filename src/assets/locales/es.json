@@ -1,4 +1,7 @@
 {
+  "hotels": {
+    "title": "Esta es la página del listado de hoteles"
+  },
   "menu": {
     "item1": "Tab1",
     "item2": "Tab2"

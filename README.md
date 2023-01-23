@@ -15,6 +15,7 @@ Instalaciones obligatorias:
 `yarn add -D sass`
 * [i18n](https://vue-i18n.intlify.dev/)
 `yarn add vue-i18n@9`
+* 
 
 Instalaciones recomendadas:
 
@@ -23,6 +24,18 @@ Instalaciones recomendadas:
 * [Json Viewer](https://chrome.google.com/webstore/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc) 
 * [Normalize](https://necolas.github.io/normalize.css/)
 `yarn add normalize.css`
+
+* Incluye esta línea en el **tsconfig.jason** dentro del **"compilerOptions"** si trabajas con _Typescript_ -->
+`"resolveJsonModule": true,` 
+* Incluye estas líneas el el **vite.config.ts** dentro del **defineConfig**:
+```
+define: {
+    __VUE_I18N_FULL_INSTALL__: true,
+    __VUE_I18N_LEGACY_API__: false,
+    __INTLIFY_PROD_DEVTOOLS__: false,
+},
+```
+* Después sólo tienes que hacer las importaciones del LanguageSelector donde corresponda
 
 
 ## Skeleton Theme Template

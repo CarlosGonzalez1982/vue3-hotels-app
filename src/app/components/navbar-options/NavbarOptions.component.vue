@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import type { RouterLink } from '@/app/router/link-routes';
 import IconPinia from '@/assets/img/icons/IconPinia.vue';
-import ComboSelector from "@/app/components/shared-components/combo-selector/ComboSelector.vue";
-
-
+import LanguageSelector from "@/app/components/shared-components/combo-selector/LanguageSelector.component.vue";
 
 interface Props {
     title: string;
@@ -42,12 +39,7 @@ const setResponsiveMenu = (element:any):void => {
 
             <div class="header__links-align">
 
-                <ComboSelector>
-                    <template #option>
-                        <option value="es" selected>Español</option>
-                        <option value="en">English</option>
-                    </template>
-                </ComboSelector>
+                <LanguageSelector/>
 
                 <a href="javascript:void(0);" class="icon" @click="setResponsiveMenu">
                     <i class="fa fa-bars"></i>
