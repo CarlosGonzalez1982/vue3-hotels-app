@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/app/components/home-page/HomePage.component.vue';
+import { hotelsRoute } from "@/app/components/hotels-page/index.router";
 
 const router = createRouter({
 
@@ -11,12 +12,13 @@ const router = createRouter({
             component: HomePage
         },
         {
+            ...hotelsRoute,
             path: '/hotels-page',
-            name: 'hotels-page',
+            //name: 'hotels-page',
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import(/* webpackChunkName: "hotels-page" */ '@/app/components/hotels-page/HotelsPage.component.vue')
+            //component: () => import(/* webpackChunkName: "hotels-page" */ '@/app/components/hotels-page/HotelsPage.component.vue')
         },
         {
             path: '/contact-page',

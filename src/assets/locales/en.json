@@ -1,5 +1,11 @@
 {
   "hotels": {
-    "title": "This is the Hotels list page"
+    "title": "This is the Hotels layout page",
+    "list": {
+      "title": "This is the hotels list page"
+    }
+  },
+  "contact": {
+    "title": "This is the app contact layout"
   }
 }

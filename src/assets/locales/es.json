@@ -1,6 +1,12 @@
 {
   "hotels": {
-    "title": "Esta es la página del listado de hoteles"
+    "title": "Esta es el layout del listado de hoteles",
+    "list": {
+      "title": "Esta es el listado de hoteles"
+    }
+  },
+  "contact": {
+    "title": "Esta es el layout del contacto de la app"
   },
   "menu": {
     "item1": "Tab1",

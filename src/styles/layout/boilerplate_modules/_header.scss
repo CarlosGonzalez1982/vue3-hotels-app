@@ -17,6 +17,7 @@
 }
 
 .topnav {
+  background-color: $c-black;;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -102,4 +103,15 @@
   left: 20px;
   position: fixed;
   top: 20px;
+}
+
+.web-app--container .header__position--fixed {
+  left: 0;
+  top: 80px;
+  a:first-child {
+    padding: 26px 16px;
+    &:hover {
+      background-color: $c-green-light;
+    }
+  }
 }

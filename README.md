@@ -15,7 +15,9 @@ Instalaciones obligatorias:
 `yarn add -D sass`
 * [i18n](https://vue-i18n.intlify.dev/)
 `yarn add vue-i18n@9`
-* 
+* [Axios](https://axios-http.com/es/docs/intro)
+`yarn add axios`
+
 
 Instalaciones recomendadas:
 
@@ -24,6 +26,8 @@ Instalaciones recomendadas:
 * [Json Viewer](https://chrome.google.com/webstore/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc) 
 * [Normalize](https://necolas.github.io/normalize.css/)
 `yarn add normalize.css`
+* [TanStack - VueQuery](https://tanstack.com/query/v4/docs/vue/installation)
+`yarn add @tanstack/vue-query`
 
 * Incluye esta línea en el **tsconfig.jason** dentro del **"compilerOptions"** si trabajas con _Typescript_ -->
 `"resolveJsonModule": true,` 

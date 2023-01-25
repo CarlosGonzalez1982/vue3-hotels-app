@@ -1,6 +1,6 @@
 @mixin fontType($family, $color, $size, $weight) {
   color: $color;
-  font-family: $family, serif;
+  font-family: $family, sans-serif;
   font-size: $size;
   font-weight: $weight;
 }
@@ -38,5 +38,5 @@
 // px2rem
 $browser-context: 16;
 @function px2rem($pixels, $context: $browser-context) {
-  @return ($pixels / $context) * 1rem;
+  @return calc($pixels / $context) * 1rem;
 }

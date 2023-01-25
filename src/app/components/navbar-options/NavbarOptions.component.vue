@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import type { RouterLink } from '@/app/router/link-routes';
+import type { RouterLink } from '@/app/router/link-routes.router';
 import IconPinia from '@/assets/img/icons/IconPinia.vue';
-import LanguageSelector from "@/app/components/shared-components/combo-selector/LanguageSelector.component.vue";
+import LanguageSelector from '@/app/components/shared-components/combo-selector/LanguageSelector.component.vue';
 
 interface Props {
-    title: string;
-    links: RouterLink[];
+    title?: string;
+    links?: RouterLink[];
+    submenu?: boolean;
 }
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+    submenu: false,
+    links: () => []
+});
 
 const setResponsiveMenu = (element:any):void => {
 
@@ -23,12 +27,12 @@ const setResponsiveMenu = (element:any):void => {
 
 <template>
     <header class="header__position--fixed header__border--line">
-        <span class="web-app--version">{{ props.title }}</span>
+        <span class="web-app--version" v-if="props.title">{{ props.title }}</span>
 
         <div class="topnav" id="myTopnav" role="navigation">
             <div class="header__links-align">
 
-                <IconPinia to="/"/>
+                <IconPinia to="/" v-if="!props.submenu"/>
 
                 <RouterLink v-for="link of props.links"
                             :key="link.path"
@@ -37,7 +41,7 @@ const setResponsiveMenu = (element:any):void => {
                 </RouterLink>
             </div>
 
-            <div class="header__links-align">
+            <div class="header__links-align" v-if="!props.submenu">
 
                 <LanguageSelector/>
 
