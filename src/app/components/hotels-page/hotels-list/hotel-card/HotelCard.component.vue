@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { toRef } from 'vue';
+import { useRouter } from 'vue-router';
 import type { GetHotelsListInterface } from '@/app/components/hotels-page/hotels-list/requestModel/getHotelsList.interface';
 
 interface Props {
@@ -10,15 +11,27 @@ interface Props {
  * No se puede desestructurar directamente desde defineProps
  * Perdemos la reactividad
  */
+// TODO: Cómo puedo inicializar esta propiedad??
+/*const props = withDefaults(defineProps<Props>(), {
+    hotelCard: ??
+});*/
+
 const props = defineProps<Props>();
 const hotelCard = toRef(props, 'hotelCard');
+const router = useRouter();
+
+const goTo = () => {
+    router.push(`by/${ hotelCard.value.id }`);
+}
 </script>
 
 <template>
-    <section class="card__container">
+    <section class="card__container" @click="goTo()">
         <img class="card__image--shape" :src="hotelCard.img" :alt="hotelCard.name">
         <h3>{{ hotelCard.name }}</h3>
-        <p>{{ hotelCard.category }}</p>
+        <div class="card__icon--category">
+            <img v-for="number of hotelCard.category" :key="number" src="@/assets/img/icons/star-orange.svg" :alt="hotelCard.category"/>
+        </div>
     </section>
 </template>
 
