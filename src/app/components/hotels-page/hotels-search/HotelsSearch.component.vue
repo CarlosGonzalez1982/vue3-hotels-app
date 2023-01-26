@@ -3,7 +3,7 @@
 
 <template>
     <section class="hotels-page__container">
-        <h1>This is a hotels search page</h1>
+        <h1>{{ $t("hotels.search.title") }}</h1>
     </section>
 </template>
 

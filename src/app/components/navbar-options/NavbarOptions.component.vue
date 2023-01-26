@@ -13,6 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
     links: () => []
 });
 
+// TODO: arreglar esta función
 const setResponsiveMenu = (element:any):void => {
 
     let { navBarId } = element.value.id;
@@ -37,7 +38,7 @@ const setResponsiveMenu = (element:any):void => {
                 <RouterLink v-for="link of props.links"
                             :key="link.path"
                             :to="link.path">
-                    {{ link.title }}
+                    {{ $t(link.title) }}
                 </RouterLink>
             </div>
 

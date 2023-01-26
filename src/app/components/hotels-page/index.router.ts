@@ -14,19 +14,28 @@ export const hotelsRoute: RouteRecordRaw = {
         {
             path: `/${ ROUTE_NAME }/by/:id`,
             name: 'hotel-id',
-            props: { title: 'Acceder por Id', visible: false }, // no queremos que se muestre esta ruta ya que se hace por id dinámico
+            props: {
+                title: 'header2.nav1',
+                visible: false
+            }, // no queremos que se muestre esta ruta ya que se hace por id dinámico
             component: HotelId
         },
         {
             path: `/${ ROUTE_NAME }/list`,
             name: 'hotels-list',
-            props: { title: 'Listado de hoteles', visible: true },
+            props: {
+                title: 'header2.nav2',
+                visible: true
+            },
             component: HotelsList
         },
         {
             path: `/${ ROUTE_NAME }/search`,
             name: 'hotels-search',
-            props: { title: 'Buscar hotel', visible: true },
+            props: {
+                title: 'header2.nav3',
+                visible: true
+            },
             component: HotelsSearch
         },
     ]

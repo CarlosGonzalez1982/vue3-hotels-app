@@ -23,16 +23,16 @@ const {
 
 <template>
 
-    <h1 v-if="isLoading" class="cards-list__container">Loading...</h1>
+    <h1 v-if="isLoading" class="cards-list__container">{{ $t("hotels.list.loading") }}</h1>
 
     <div v-else-if="hasError" class="cards-list__container" >
-        <h1>Error al cargar</h1>
+        <h1>{{ $t("hotels.list.error") }}</h1>
         <p>{{ errorMessage }}</p>
     </div>
 
     <template v-else>
         <section class="hotels-page__container">
-            <h1 class="hotels-page__title--shape">{{ props.title }} ({{ count }})</h1>
+            <h1 class="hotels-page__title--shape">{{ $t(props.title) }} ({{ count }})</h1>
             <HotelsCardList :hotels-list="hotels"/>
         </section>
     </template>

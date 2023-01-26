@@ -8,5 +8,6 @@ import en from "@/assets/locales/en.json";
 export const i18n = createI18n({
     locale: "es",
     fallbackLocale: "es",
+    globalInjection: true,
     messages: { es, en },
 });

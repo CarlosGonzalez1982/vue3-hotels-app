@@ -1,0 +1,37 @@
+.body__loading--container {
+  animation: logoOpacity .5s;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
+.body__loading--image-transition {
+  animation: ampliateLogo .8s infinite;
+  -webkit-animation: ampliateLogo .8s infinite;
+  -webkit-animation-name: ampliateLogo;
+  left: 45%;
+  position: absolute;
+  top: 42%;
+  width: 150px;
+}
+
+@keyframes ampliateLogo {
+  0% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@keyframes logoOpacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

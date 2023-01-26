@@ -11,12 +11,16 @@ interface Props {
  * No se puede desestructurar directamente desde defineProps
  * Perdemos la reactividad
  */
-// TODO: Cómo puedo inicializar esta propiedad??
-/*const props = withDefaults(defineProps<Props>(), {
-    hotelCard: ??
-});*/
+const props = withDefaults(defineProps<Props>(), {
+    hotelCard: () => ({
+        id: 0,
+        category: 0,
+        img: '',
+        name: ''
+    })
+});
 
-const props = defineProps<Props>();
+//const props = defineProps<Props>();
 const hotelCard = toRef(props, 'hotelCard');
 const router = useRouter();
 

@@ -9,20 +9,71 @@
         <title>Hotels App</title>
     </head>
 
+    <style>
+      @keyframes logoOpacity {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes ampliateLogo {
+        0% {
+          transform: scale(1.0);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1.0);
+        }
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        font-weight: normal;
+        margin: 0;
+        position: relative;
+      }
+      body {
+        background: #181818;
+        color: #ebebeba3;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        min-height: 100vh;
+        text-rendering: optimizeLegibility;
+        transition: color 0.3s, background-color 0.2s;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+      .body__loading--container {
+        animation: logoOpacity .5s;
+        height: 100vh;
+        position: relative;
+        width: 100vw;
+      }
+      .body__loading--image-transition {
+        animation: ampliateLogo .8s infinite;
+        -webkit-animation: ampliateLogo .8s infinite;
+        -webkit-animation-name: ampliateLogo;
+        left: 45%;
+        position: absolute;
+        top: 42%;
+        width: 150px;
+      }
+    </style>
     <body>
 
         <div id="app">
-            <!-- Init Spinner -->
-            <h1>Loading...</h1>
-            <!--<div class="body-loader">
-                <div class="sk-folding-cube">
-                    <div class="sk-cube1 sk-cube"></div>
-                    <div class="sk-cube2 sk-cube"></div>
-                    <div class="sk-cube4 sk-cube"></div>
-                    <div class="sk-cube3 sk-cube"></div>
-                </div>
-            </div>-->
+        <!-- Init loader -->
+            <div class="body__loading--container">
+                <img class="body__loading--image-transition" src="/src/assets/img/icons/logoVue.svg" alt="vue-logo">
+            </div>
         </div>
-        <script type="module" src="/src/main.ts"></script>
-    </body>
+    <script type="module" src="/src/main.ts"></script>
+</body>
 </html>

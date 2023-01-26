@@ -1,13 +1,46 @@
 {
+  "header1": {
+    "nav1": "Inicio",
+    "nav2": "Hoteles",
+    "nav3": "Contáctanos",
+    "nav4": "Área de clientes"
+  },
+  "header2": {
+    "nav1": "Acceder por Id",
+    "nav2": "Listado de hoteles",
+    "nav3": "Buscar hotel"
+  },
+  "home": {
+    "title1": "Documentación",
+    "text1": "<a href='https://vuejs.org/' target='_blank' rel='noopener'>La documentación oficial</a> de Vue, le brinda toda la información que necesita para comenzar.",
+    "title2": "Estampación",
+    "text2": "Este proyecto se sirve y se incluye con <a href='https://vitejs.dev/guide/features.html' target='_blank' rel='noopener'>Vite</a>. La configuración IDE recomendada es <a href='https://code.visualstudio.com/' target='_blank' rel='noopener'>VSCode</a> + <a href='https://github.com/johnsoncodehk/volar' target='_blank' rel='noopener'>Volar</a>. Si necesita probar sus componentes y páginas web, consulte <a href='https://www.cypress.io/' target='_blank' rel='noopener'>Cypress</a> y <a href='https://on.cypress.io/component' target='_blank'>Cypress Component Testing</a>.<br/>Más instrucciones están disponibles en <code>README.md</code>.",
+    "title3": "",
+    "text3": "",
+    "title4": "",
+    "text4": "",
+    "title5": "",
+    "text5": ""
+  },
   "hotels": {
-    "title": "Esta es el layout del listado de hoteles",
+    "title": "Este es el layout del listado de hoteles",
     "list": {
-      "title": "Esta es el listado de hoteles"
+      "title": "Este es el listado de hoteles",
+      "error": "Error al cargar",
+      "loading": "Cargando...",
+      "reservation": "Reservar habitación"
+    },
+    "search": {
+      "title": "Este es el buscador de hoteles"
     }
   },
   "contact": {
-    "title": "Esta es el layout del contacto de la app"
+    "title": "Este es el layout del contacto de la app"
   },
+  "login": {
+    "title": "Este es el layout del login"
+  },
+
   "menu": {
     "item1": "Tab1",
     "item2": "Tab2"

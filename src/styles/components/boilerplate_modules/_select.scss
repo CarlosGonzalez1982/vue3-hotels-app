@@ -16,6 +16,9 @@ select {
   &::-ms-expand {
     display: none;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 // remove dotted firefox border
