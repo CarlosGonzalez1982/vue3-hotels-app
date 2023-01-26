@@ -2,13 +2,19 @@
   "header1": {
     "nav1": "Home",
     "nav2": "Hotels",
-    "nav3": "Contact us",
-    "nav4": "Customer area"
+    "nav3": "Customers",
+    "nav4": "Contact us",
+    "nav5": "Login"
   },
   "header2": {
     "nav1": "Id access",
     "nav2": "Hotels list",
     "nav3": "Search hotel"
+  },
+  "header3": {
+    "nav1": "Id access",
+    "nav2": "Clients list",
+    "nav3": "Search client"
   },
   "home": {
     "title1": "Documentation",
@@ -36,6 +42,12 @@
   },
   "contact": {
     "title": "This is the app contact layout"
+  },
+  "clients": {
+    "title": "This is the app clients list layout",
+    "list": {
+      "title": "This is the client list page"
+    }
   },
   "login": {
     "title": "This is the app login layout"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import NavbarOptions from '@/app/components/navbar-options/NavbarOptions.component.vue';
-import { RouterView } from 'vue-router';
+//import { RouterView } from 'vue-router'; // No parece necesario importarlo
 import { hotelsRoute } from '@/app/components/hotels-page/index.router';
 import type { RouterLink } from '@/app/router/link-routes.router';
 

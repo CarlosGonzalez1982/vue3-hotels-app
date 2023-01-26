@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/app/components/home-page/HomePage.component.vue';
-import { hotelsRoute } from "@/app/components/hotels-page/index.router";
+import { hotelsRoute } from '@/app/components/hotels-page/index.router';
+import { clientsRoute } from '@/app/components/clients-page/index.router';
 
 const router = createRouter({
 
@@ -19,6 +20,15 @@ const router = createRouter({
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
             //component: () => import(/* webpackChunkName: "hotels-page" */ '@/app/components/hotels-page/HotelsPage.component.vue')
+        },
+        {
+            ...clientsRoute,
+            path: '/clients-page',
+            //name: 'clients-page',
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            //component: () => import(/* webpackChunkName: "clients-page" */ '@/app/components/clients-page/ClientsPage.component.vue')
         },
         {
             path: '/contact-page',

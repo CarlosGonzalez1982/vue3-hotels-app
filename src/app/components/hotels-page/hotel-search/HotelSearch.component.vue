@@ -7,4 +7,4 @@
     </section>
 </template>
 
-<style src="./HotelsSearch.component.scss" lang="scss" scoped/>
+<style src="./HotelSearch.component.scss" lang="scss" scoped/>

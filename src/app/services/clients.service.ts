@@ -1,10 +1,10 @@
-import type { GetHotelsListInterface } from '@/app/components/hotels-page/hotels-list/requestModel/getHotelsList.interface';
+import type { GetClientsListInterface } from "@/app/components/clients-page/clients-list/requestModel/getClientsList.interface";
 import { environment } from '@/environments/environment';
 
 
-const endpoint = '/entries.json';
+const endpoint = '/clients.json';
 
-export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> => {
+export const getClientsListService = async(): Promise<GetClientsListInterface[]> => {
 
     try {
 
@@ -14,7 +14,7 @@ export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> =
          */
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.get<GetHotelsListInterface[]>(endpoint);
+                const { data } = await environment.get<GetClientsListInterface[]>(endpoint);
                 resolve(data);
             }, 1000)
         });
@@ -30,7 +30,7 @@ export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> =
     }
 }
 
-export const getHotelByIdService = async( id: number ): Promise<GetHotelsListInterface> => {
+/*export const getHotelByIdService = async( id: number ): Promise<GetHotelsListInterface> => {
 
     try {
         const { data } = await environment.get<GetHotelsListInterface[]>(endpoint);
@@ -42,4 +42,4 @@ export const getHotelByIdService = async( id: number ): Promise<GetHotelsListInt
         throw new Error(error);
         throw new Error(`No se encontró hotel con el id ${ id }`);
     }
-}
+}*/

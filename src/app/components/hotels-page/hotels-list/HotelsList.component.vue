@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HotelsCardList from '@/app/components/hotels-page/hotels-list/hotels-card-list/HotelsCardList.vue';
-import { useHotelsList } from '@/app/components/hotels-page/composables/useHotelsList';
+import HotelsCardList from '@/app/components/hotels-page/hotels-list/hotels-card-list/HotelsCardList.component.vue';
+import { useHotelsListComposable } from '@/app/components/hotels-page/composables/useHotelsList.composable';
 
 interface Props {
     title?: string;
@@ -18,7 +18,7 @@ const {
     hasError,
     isLoading,
     count,
-} = useHotelsList();
+} = useHotelsListComposable();
 </script>
 
 <template>

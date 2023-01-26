@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+//import { RouterView } from 'vue-router'; // No parece necesario importarlo
 import { routeLinks } from '@/app/router/link-routes.router';
 import NavbarOptions from '@/app/components/navbar-options/NavbarOptions.component.vue';
 </script>

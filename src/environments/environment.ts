@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const environment = axios.create({
-    baseURL: 'https://vue-demo-project-db-default-rtdb.europe-west1.firebasedatabase.app'
+    baseURL: import.meta.env.VITE_API_DEV_URL //para leer la variable de entorno de .env
 });

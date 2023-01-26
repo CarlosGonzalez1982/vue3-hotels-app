@@ -2,13 +2,19 @@
   "header1": {
     "nav1": "Inicio",
     "nav2": "Hoteles",
-    "nav3": "Contáctanos",
-    "nav4": "Área de clientes"
+    "nav3": "Clientes",
+    "nav4": "Contáctanos",
+    "nav5": "Iniciar sesión"
   },
   "header2": {
     "nav1": "Acceder por Id",
     "nav2": "Listado de hoteles",
     "nav3": "Buscar hotel"
+  },
+  "header3": {
+    "nav1": "Acceder por Id",
+    "nav2": "Listado de clientes",
+    "nav3": "Buscar cliente"
   },
   "home": {
     "title1": "Documentación",
@@ -36,6 +42,12 @@
   },
   "contact": {
     "title": "Este es el layout del contacto de la app"
+  },
+  "clients": {
+    "title": "Este es el layout del listado de clientes de la app",
+    "list": {
+      "title": "Este es el listado de clientes"
+    }
   },
   "login": {
     "title": "Este es el layout del login"

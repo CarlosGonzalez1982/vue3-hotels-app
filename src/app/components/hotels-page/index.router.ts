@@ -1,7 +1,4 @@
 import type { RouteRecordRaw } from "vue-router";
-import HotelsSearch from '@/app/components/hotels-page/hotels-search/HotelsSearch.component.vue';
-import HotelsList from '@/app/components/hotels-page/hotels-list/HotelsList.component.vue';
-import HotelId from '@/app/components/hotels-page/hotel-id/HotelId.component.vue';
 import HotelsPage from '@/app/components/hotels-page/HotelsPage.component.vue';
 
 const ROUTE_NAME = 'hotels-page';
@@ -18,7 +15,7 @@ export const hotelsRoute: RouteRecordRaw = {
                 title: 'header2.nav1',
                 visible: false
             }, // no queremos que se muestre esta ruta ya que se hace por id dinámico
-            component: HotelId
+            component: () => import(/* webpackChunkName: "hotel-id-page" */ '@/app/components/hotels-page/hotel-id/HotelId.component.vue')
         },
         {
             path: `/${ ROUTE_NAME }/list`,
@@ -27,16 +24,16 @@ export const hotelsRoute: RouteRecordRaw = {
                 title: 'header2.nav2',
                 visible: true
             },
-            component: HotelsList
+            component: () => import(/* webpackChunkName: "hotels-list-page" */ '@/app/components/hotels-page/hotels-list/HotelsList.component.vue')
         },
         {
             path: `/${ ROUTE_NAME }/search`,
-            name: 'hotels-search',
+            name: 'hotel-search',
             props: {
                 title: 'header2.nav3',
                 visible: true
             },
-            component: HotelsSearch
+            component: () => import(/* webpackChunkName: "hotel-search-page" */ '@/app/components/hotels-page/hotel-search/HotelSearch.component.vue')
         },
     ]
 };

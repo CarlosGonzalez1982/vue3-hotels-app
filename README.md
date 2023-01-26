@@ -63,11 +63,19 @@ define: {
    │	│
    │	├── components/
    │	│    │
-   │	│    ├── dashboard/
+   │	│    ├── home-page/
+   │    │    │    │
+   │    │    │    ├── composables/
+   │    │    │    │
+   │    │    │    ├── store/
+   │    │    │    │
+   │    │    │    ├── children-page/
+   │    │    │    │
+   │    │    │    ├── layout.vue
+   │    │    │    │
+   │	│    │    └── index.router.ts
    │	│    │
-   │	│    ├── home/
-   │	│    │
-   │    │    ├── about/ …
+   │    │    ├── about-page/ …
    │    │    │
    │	│    └── shared-components/
    │	│         │
@@ -76,8 +84,6 @@ define: {
    │	│         ├── spinner/
    │	│         │
    │	│         └── pager-table/ …
-   │	│
-   │	├── composables/
    │	│
    │	└── router/
    │

@@ -20,10 +20,9 @@ const loadedCardWithError = (error: string) => {
     errorMessage.value = error;
 }
 
+export const useHotelCardComposable = (id: number) => {
 
-export const useHotelCard = (id: number) => {
-
-    const {isLoading} = useQuery(
+    const { isLoading } = useQuery(
         ['hotels', id],
         () => getHotelByIdService(id),
         {

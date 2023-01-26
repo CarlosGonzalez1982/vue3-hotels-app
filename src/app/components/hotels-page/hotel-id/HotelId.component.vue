@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useHotelCard } from "@/app/components/hotels-page/composables/useHotelCard";
+import { useHotelCardComposable } from "@/app/components/hotels-page/composables/useHotelCard.composable";
 
 const router = useRouter();
 const route  = useRoute();
@@ -12,7 +12,7 @@ const {
     hasError,
     isLoading,
     hotel,
-} = useHotelCard(+id);
+} = useHotelCardComposable(+id);
 
 watchEffect(() => {
     if ( !isLoading.value && hasError.value ) {
