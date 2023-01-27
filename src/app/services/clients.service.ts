@@ -2,9 +2,9 @@ import type { GetClientsListInterface } from "@/app/components/clients-page/clie
 import { environment } from '@/environments/environment';
 
 
-const endpoint = '/clients.json';
+const endpoint = '/clients-page-';
 
-export const getClientsListService = async(): Promise<GetClientsListInterface[]> => {
+export const getClientsListService = async( page: number ): Promise<GetClientsListInterface[]> => {
 
     try {
 
@@ -14,9 +14,9 @@ export const getClientsListService = async(): Promise<GetClientsListInterface[]>
          */
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.get<GetClientsListInterface[]>(endpoint);
+                const { data } = await environment.get<GetClientsListInterface[]>(`${ endpoint }${ page }.json`);
                 resolve(data);
-            }, 1000)
+            }, 1000);
         });
 
         /**
@@ -26,6 +26,7 @@ export const getClientsListService = async(): Promise<GetClientsListInterface[]>
         return data;*/
 
     } catch ( error: any ) {
+        console.error(`No se encontró el listado: Parámetro --> ${ page }`);
         throw new Error(error);
     }
 }

@@ -1,0 +1,31 @@
+.paginator__container {
+  margin-top: 10px;
+}
+
+.paginator__option--style {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid $c-text;
+  color: $c-text;
+  cursor: pointer;
+  margin-right: 8px;
+  padding: 10px;
+  transition: all .2s;
+  &:hover,
+  &.paginator__option--active {
+    background-color: rgba($c-green-light, .4);
+    transition: all .2s;
+  }
+  &:disabled {
+    background-color: rgba($c-text--disabled, .4);
+    color: rgba($c-text, .15);
+    cursor: not-allowed;
+  }
+  &:hover:disabled {
+    background-color: rgba($c-text--disabled, .4);
+  }
+}
+
+.paginator__option--dots {
+  margin: 0 12px 0 8px;
+}

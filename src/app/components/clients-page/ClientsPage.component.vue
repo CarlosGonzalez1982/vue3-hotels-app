@@ -17,7 +17,6 @@ const routeLinks: RouterLink[] = hotelsRoute.children!
 </script>
 
 <template>
-    <h1>{{ $t("clients.title") }}</h1>
     <RouterView/>
 </template>
 

@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { useClientsList } from "@/app/components/clients-page/composables/useClients.composable";
+import type { GetClientsListInterface } from '@/app/components/clients-page/clients-list/requestModel/getClientsList.interface';
 
-const { isLoading, clients} = useClientsList()
+interface Props {
+    clients: GetClientsListInterface[];
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    clients: () => []
+});
 </script>
 
 <template>
-    <h1>{{ $t("clients.list.title") }}</h1>
     <ul>
-        <li v-for="client of clients" :key="client.id">
+        <li v-for="client of props.clients" :key="client.id">
             <RouterLink :to="{
                 name: 'client-id',
                 params: {id: client.id}}">

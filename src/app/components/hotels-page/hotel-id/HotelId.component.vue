@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useHotelCardComposable } from "@/app/components/hotels-page/composables/useHotelCard.composable";
+import { useHotelCardComposable } from '@/app/components/hotels-page/composables/useHotelCard.composable';
+import SpinnerElement from '@/app/components/shared-components/spinner-element/SpinnerElement.component.vue';
 
 const router = useRouter();
 const route  = useRoute();
@@ -28,7 +29,8 @@ const goTo = () => {
 <template>
     <section class="hotels-page__container">
 
-        <h1 v-if="isLoading">{{ $t("hotels.list.loading") }}</h1>
+        <SpinnerElement v-if="isLoading"/>
+
         <h1 v-else-if="hasError">{{ errorMessage }}</h1>
 
         <div v-else-if="hotel">

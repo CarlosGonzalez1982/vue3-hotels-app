@@ -1,4 +1,4 @@
-import { watch } from 'vue';
+import {computed, watch} from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import { storeToRefs } from 'pinia';
 import { getClientsListService } from '@/app/services/clients.service';
@@ -14,19 +14,27 @@ export const useClientsList = () => {
      * 2do argumento --> función para traer la data que nos interesa
      */
     const { isLoading, data /*, isError, error*/ } = useQuery(
-        ['clients?page=', 1],
-        () => getClientsListService()
+        ['clients-page-', currentPage], // useQuery saca el value directamente de la variable reactiva sin el .value
+        () => getClientsListService(currentPage.value),
+        /*{
+            staleTime: 1000 * 60, //no lances la petición al servidor en 60 segundos
+        }*/
     );
 
-    watch(data,clients => {
-        if (clients) clientsStore.setClients(clients)
+    watch( data,clients => {
+        if (clients) clientsStore.setClients(clients);
     });
 
     return {
         // Properties
         isLoading,
-        clients
-        // Getters
+        clients,
+        currentPage,
+        totalPages,
         // Methods
+        getPage( page: number) {
+            clientsStore.setPage(page);
+        }
+        // Getters
     }
 }

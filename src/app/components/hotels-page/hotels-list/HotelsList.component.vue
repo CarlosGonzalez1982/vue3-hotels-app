@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HotelsCardList from '@/app/components/hotels-page/hotels-list/hotels-card-list/HotelsCardList.component.vue';
+import SpinnerElement from '@/app/components/shared-components/spinner-element/SpinnerElement.component.vue';
 import { useHotelsListComposable } from '@/app/components/hotels-page/composables/useHotelsList.composable';
 
 interface Props {
@@ -12,18 +13,12 @@ const props = withDefaults(defineProps<Props>(), {
     visible: true
 });
 
-const {
-    hotels,
-    errorMessage,
-    hasError,
-    isLoading,
-    count,
-} = useHotelsListComposable();
+const { hotels, errorMessage, hasError, isLoading, count } = useHotelsListComposable();
 </script>
 
 <template>
 
-    <h1 v-if="isLoading" class="cards-list__container">{{ $t("hotels.list.loading") }}</h1>
+    <SpinnerElement v-if="isLoading"/>
 
     <div v-else-if="hasError" class="cards-list__container" >
         <h1>{{ $t("hotels.list.error") }}</h1>

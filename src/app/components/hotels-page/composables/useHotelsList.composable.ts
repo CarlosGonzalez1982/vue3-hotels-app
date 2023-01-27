@@ -29,9 +29,9 @@ export const useHotelsListComposable = () => {
     const { isLoading, data /*, isError, data, error*/ } = useQuery(
         ['hotels'],
         getHotelsListService,
-        /*{
+        {
             onSuccess: loadedHotels
-        }*/
+        }
     );
 
     watch(data,hotels => {
