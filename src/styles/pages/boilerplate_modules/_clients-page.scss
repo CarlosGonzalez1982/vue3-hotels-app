@@ -3,15 +3,15 @@
 }
 
 .clients-page__title--shape {
-  align-items: center;
-  background-color: $c-black;
-  display: flex;
-  justify-content: center;
-  height: 80px;
-  left: 0;
-  margin: 0;
-  position: fixed;
-  top: 160px;
-  width: 100%;
-  z-index: 1;
+  color: $c-grid--border;
+}
+
+.clients-page__list--container {
+  list-style-type: none;
+  margin-bottom: 20px;
+  padding: 0;
+  .clients-page__list--item {
+    font-size: px2rem(16);
+    line-height: px2rem(28);
+  }
 }

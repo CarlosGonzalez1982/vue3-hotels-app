@@ -1,5 +1,5 @@
 <template>
-    <div class="item">
+    <div class="page__container--center item">
         <i>
             <slot name="icon"></slot>
         </i>

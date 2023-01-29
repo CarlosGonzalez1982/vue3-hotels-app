@@ -23,7 +23,7 @@ const loadedCardWithError = (error: string) => {
 export const useHotelCardComposable = (id: number) => {
 
     const { isLoading } = useQuery(
-        ['hotels', id],
+        ['hotel', id],
         () => getHotelByIdService(id),
         {
             onSuccess: loadedCard,

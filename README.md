@@ -18,7 +18,6 @@ Instalaciones obligatorias:
 * [Axios](https://axios-http.com/es/docs/intro)
 `yarn add axios`
 
-
 Instalaciones recomendadas:
 
 * [Postman](https://www.postman.com/downloads/)
@@ -28,6 +27,9 @@ Instalaciones recomendadas:
 `yarn add normalize.css`
 * [TanStack - VueQuery](https://tanstack.com/query/v4/docs/vue/installation)
 `yarn add @tanstack/vue-query`
+* [Json-Server](https://www.npmjs.com/package/json-server)
+`yarn add json-server`
+
 
 * Incluye esta línea en el **tsconfig.jason** dentro del **"compilerOptions"** si trabajas con _Typescript_ -->
 `"resolveJsonModule": true,` 
@@ -41,6 +43,9 @@ define: {
 ```
 * Después sólo tienes que hacer las importaciones del LanguageSelector donde corresponda
 
+* Incluye estas líneas el el **package.json** dentro de **"scripts"**:
+`"backend-server": "json-server --watch ./mock-db/db.json --port 3001",`
+* Después ejecuta `yarn backend-server` y disfruta de la base de datos mockeada
 
 ## Skeleton Theme Template
 
@@ -116,7 +121,7 @@ define: {
         └── themes/
 ```
 
-Estructura generada en base a **Clean Architecture** y a recomendaciones de Seniors Dev para proyectos de medio-largo plazo, que puedan crecer en contenido
+Estructura generada en base a **Clean Architecture** y a recomendaciones de estándares actuales para proyectos de medio-largo plazo, que puedan crecer en contenido
 
 **dashboard** _siempre_ es el componente principal del que descienden el resto de componentes
 

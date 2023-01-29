@@ -17,7 +17,9 @@ const routeLinks: RouterLink[] = hotelsRoute.children!
 </script>
 
 <template>
-    <RouterView/>
+    <div class="page__container--center">
+        <RouterView/>
+    </div>
 </template>
 
 <style src="./ClientsPage.component.scss" lang="scss" scoped/>

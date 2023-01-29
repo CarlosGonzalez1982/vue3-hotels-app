@@ -11,8 +11,8 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <ul>
-        <li v-for="client of props.clients" :key="client.id">
+    <ul class="clients-page__list--container">
+        <li v-for="client of props.clients" :key="client.id" class="clients-page__list--item">
             <RouterLink :to="{
                 name: 'client-id',
                 params: {id: client.id}}">

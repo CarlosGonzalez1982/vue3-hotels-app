@@ -14,7 +14,7 @@ export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> =
          */
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.get<GetHotelsListInterface[]>(`${ endpoint }.json`);
+                const { data } = await environment.get<GetHotelsListInterface[]>(`${ endpoint }`);
                 resolve(data);
             }, 1000);
         });
@@ -30,13 +30,13 @@ export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> =
     }
 }
 
-export const getHotelByIdService = async( id: number ): Promise<GetHotelsListInterface> => {
+export const getHotelByIdService = async(id: number): Promise<GetHotelsListInterface> => {
 
     try {
-        const { data } = await environment.get<GetHotelsListInterface[]>(`${ endpoint }.json`);
-        const filterData = data.find( dataId => dataId.id === id )!;
-
-        return filterData;
+        const { data } = await environment.get<GetHotelsListInterface>(`${ endpoint }/${ id }`);
+        /*const filterData = data.find( dataId => dataId.id === id )!;
+        return filterData;*/
+        return data;
 
     } catch ( error: any ) {
         console.error(`No se encontró hotel con el id ${ id }`);

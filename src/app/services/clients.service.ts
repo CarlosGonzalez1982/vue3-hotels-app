@@ -2,9 +2,9 @@ import type { GetClientsListInterface } from "@/app/components/clients-page/clie
 import { environment } from '@/environments/environment';
 
 
-const endpoint = '/clients-page-';
+const endpoint = '/clients';
 
-export const getClientsListService = async( page: number ): Promise<GetClientsListInterface[]> => {
+export const getClientsListService = async (page: number): Promise<GetClientsListInterface[]> => {
 
     try {
 
@@ -14,9 +14,9 @@ export const getClientsListService = async( page: number ): Promise<GetClientsLi
          */
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.get<GetClientsListInterface[]>(`${ endpoint }${ page }.json`);
+                const { data } = await environment.get<GetClientsListInterface[]>(`${ endpoint }?_page=${ page }`);
                 resolve(data);
-            }, 1000);
+            }, 3000);
         });
 
         /**
@@ -25,22 +25,45 @@ export const getClientsListService = async( page: number ): Promise<GetClientsLi
         /*const { data } = await environment.get<GetClientsListInterface[]>(endpoint);
         return data;*/
 
-    } catch ( error: any ) {
+    } catch (error: any) {
         console.error(`No se encontró el listado: Parámetro --> ${ page }`);
         throw new Error(error);
     }
 }
 
-/*export const getHotelByIdService = async( id: number ): Promise<GetHotelsListInterface> => {
+export const getClientByIdService = async (id: number): Promise<GetClientsListInterface> => {
 
     try {
-        const { data } = await environment.get<GetHotelsListInterface[]>(endpoint);
-        const filterData = data.find( dataId => dataId.id === id )!;
 
-        return filterData;
+        const {data} = await environment.get<GetClientsListInterface>(`${ endpoint }/${ id }`);
+        /*const filterData = data.find( dataId => dataId.id === id )!;
+        return filterData;*/
+        return data;
 
-    } catch ( error: any ) {
+    } catch (error: any) {
+
+        console.error(`No se encontró cliente con el id ${id}`);
         throw new Error(error);
-        throw new Error(`No se encontró hotel con el id ${ id }`);
     }
-}*/
+}
+
+export const updateClientByIdService = async (client: GetClientsListInterface): Promise<GetClientsListInterface> => {
+
+    try {
+
+        return new Promise((resolve) => {
+            setTimeout(async () => {
+                const { data } = await environment.patch<GetClientsListInterface>(`${ endpoint }/${ client.id }`, client);
+                resolve(data);
+            }, 1000);
+        });
+
+        /*const { data } = await environment.patch<GetClientsListInterface>(`${ endpoint }/${ client.id }`, client);
+        return data;*/
+
+    } catch (error: any) {
+
+        console.error(`No se pudieron guardar los cambios al cliente con id ${ client.id }`);
+        throw new Error(error);
+    }
+}

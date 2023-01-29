@@ -1,4 +1,14 @@
 a {
   color: $c-green-light;
   text-decoration: none;
+  &:hover {
+    color: $c-text;
+  }
+}
+
+.page__container--center {
+  margin: 0 auto 40px;
+  text-align: center;
+  top: 50px;
+  width: 60%;
 }

@@ -23,16 +23,15 @@ const currentPage = toRef(props,'currentPage');
 const totalPageNumber = ref<number[]>([]);
 
 watch(totalPages, () => {
-    totalPageNumber.value = [...new Array(totalPages.value)].map((value, index) => index + 1);
-    },
-    {
+        totalPageNumber.value = [...new Array(totalPages.value)].map((value, index) => index + 1);
+    }, {
     immediate: true
 });
 </script>
 
 <template>
     <div class="paginator__container">
-        <button class="paginator__option--style" :disabled="currentPage === 1" @click="emits('pageChanged', currentPage - 1)">Anterior</button>
+        <button class="paginator__option--style" :disabled="currentPage === 1" @click="emits('pageChanged', currentPage - 1)"><i class="fa fa-angle-double-left"></i></button>
         <button class="paginator__option--style"
                 v-for="number of totalPageNumber"
                 :key="number"
@@ -43,7 +42,7 @@ watch(totalPages, () => {
 
         <!--<span class="paginator__option--dots">...</span>-->
 
-        <button class="paginator__option--style" :disabled="currentPage === totalPages" @click="emits('pageChanged', currentPage + 1)">Siguiente</button>
+        <button class="paginator__option--style" :disabled="currentPage === totalPages" @click="emits('pageChanged', currentPage + 1)"><i class="fa fa-angle-double-right"></i></button>
     </div>
 </template>
 
