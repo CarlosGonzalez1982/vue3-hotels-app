@@ -1,18 +1,18 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import type { GetHotelsListInterface } from '@/app/components/hotels-page/hotels-list/requestModel/getHotelsList.interface';
+import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 
 
 export const useHotelsListStore = defineStore('hotels', () => {
 
-    const hotels = ref<GetHotelsListInterface[]>([]);
+    const hotels = ref<GetHotelsListModel[]>([]);
 
     return {
         // State properties
         hotels,
         // Getters
         // Actions
-        setHotels(newHotels: GetHotelsListInterface[]) {
+        setHotels(newHotels: GetHotelsListModel[]) {
             hotels.value = newHotels;
         },
     };

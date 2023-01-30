@@ -2,12 +2,12 @@ import { computed, watch, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
 import { getClientByIdService, updateClientByIdService } from '@/app/services/clients.service';
-import type { GetClientsListInterface } from '@/app/components/clients-page/clients-list/requestModel/getClientsList.interface';
+import type { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
 
 
 export const useClientCardComposable = (id: number) => {
 
-    const client = ref<GetClientsListInterface>();
+    const client = ref<GetClientsListModel>();
 
     /**
      * useQuery es para recoger peticiones get del store de la caché
@@ -28,7 +28,7 @@ export const useClientCardComposable = (id: number) => {
 
     const clientMutation = useMutation( updateClientByIdService );
     //const queryClient = useQueryClient();
-
+console.log('clientMutation',clientMutation);
     watch( data, () => {
             if (data.value) client.value = { ...data.value };
         },{
@@ -49,7 +49,7 @@ export const useClientCardComposable = (id: number) => {
         // Methods
         updateClientOnSubmit: clientMutation.mutate,
         isUpdating: computed(() => clientMutation.isLoading.value),
-        isUpdatingSuccessful: computed(() => clientMutation.isLoading.value),
+        isUpdatingSuccessful: computed(() => clientMutation.isSuccess.value),
         isErrorUpdating: computed(() => clientMutation.isError.value),
     }
 }

@@ -1,10 +1,12 @@
-import type { GetClientsListInterface } from "@/app/components/clients-page/clients-list/requestModel/getClientsList.interface";
 import { environment } from '@/environments/environment';
+import { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
+import { mapperResponseData } from "@/app/components/clients-page/clients-list/mapper/getClientsList.mapper";
+import {UpdateClientsListModel} from "@/app/components/clients-page/clients-list/request-model/updateClientsList.model";
 
 
 const endpoint = '/clients';
 
-export const getClientsListService = async (page: number): Promise<GetClientsListInterface[]> => {
+export const getClientsListService = async (page: number): Promise<GetClientsListModel[]> => {
 
     try {
 
@@ -14,7 +16,8 @@ export const getClientsListService = async (page: number): Promise<GetClientsLis
          */
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.get<GetClientsListInterface[]>(`${ endpoint }?_page=${ page }`);
+                let { data } = await environment.get<GetClientsListModel[]>(`${ endpoint }?_page=${ page }`);
+                data = mapperResponseData(data);
                 resolve(data);
             }, 3000);
         });
@@ -22,7 +25,7 @@ export const getClientsListService = async (page: number): Promise<GetClientsLis
         /**
          * Descomentar después del test
          */
-        /*const { data } = await environment.get<GetClientsListInterface[]>(endpoint);
+        /*const { data } = await environment.get<GetClientsListModel[]>(endpoint);
         return data;*/
 
     } catch (error: any) {
@@ -31,11 +34,12 @@ export const getClientsListService = async (page: number): Promise<GetClientsLis
     }
 }
 
-export const getClientByIdService = async (id: number): Promise<GetClientsListInterface> => {
+export const getClientByIdService = async (id: number): Promise<GetClientsListModel> => {
 
     try {
 
-        const {data} = await environment.get<GetClientsListInterface>(`${ endpoint }/${ id }`);
+        let { data } = await environment.get<GetClientsListModel>(`${ endpoint }/${ id }`);
+        data = new GetClientsListModel(data);
         /*const filterData = data.find( dataId => dataId.id === id )!;
         return filterData;*/
         return data;
@@ -47,18 +51,20 @@ export const getClientByIdService = async (id: number): Promise<GetClientsListIn
     }
 }
 
-export const updateClientByIdService = async (client: GetClientsListInterface): Promise<GetClientsListInterface> => {
+export const updateClientByIdService = async (client: GetClientsListModel): Promise<GetClientsListModel> => {
 
     try {
 
+        const dataToSend = new UpdateClientsListModel(client);
+
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.patch<GetClientsListInterface>(`${ endpoint }/${ client.id }`, client);
+                const { data } = await environment.patch<GetClientsListModel>(`${ endpoint }/${ dataToSend.id }`, dataToSend);
                 resolve(data);
             }, 1000);
         });
 
-        /*const { data } = await environment.patch<GetClientsListInterface>(`${ endpoint }/${ client.id }`, client);
+        /*const { data } = await environment.patch<GetClientsListModel>(`${ endpoint }/${ client.id }`, client);
         return data;*/
 
     } catch (error: any) {

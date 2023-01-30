@@ -5,7 +5,6 @@ import SpinnerElement from '@/app/components/shared-components/spinner-element/S
 import { useClientsListComposable } from '@/app/components/clients-page/composables/useClientsList.composable';
 
 const { isLoading, clients, currentPage, totalPages, getPage } = useClientsListComposable()
-
 </script>
 
 <template>

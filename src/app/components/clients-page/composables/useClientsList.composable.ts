@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia';
 import { getClientsListService } from '@/app/services/clients.service';
 import { useClientsListStore } from '@/app/components/clients-page/store/clientsList.store';
 
+
 export const useClientsListComposable = () => {
 
     const clientsStore = useClientsListStore();

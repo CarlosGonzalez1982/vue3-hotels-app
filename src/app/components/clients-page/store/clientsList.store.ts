@@ -1,13 +1,13 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import type { GetClientsListInterface } from "@/app/components/clients-page/clients-list/requestModel/getClientsList.interface";
+import type { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
 
 export const useClientsListStore = defineStore('clients', () => {
 
 
     const currentPage = ref<number>(1);
     const totalPages = ref<number>(5);
-    const clients = ref<GetClientsListInterface[]>([]);
+    const clients = ref<GetClientsListModel[]>([]);
 
     return {
         // State properties
@@ -16,7 +16,7 @@ export const useClientsListStore = defineStore('clients', () => {
         clients,
         // Getters
         // Actions
-        setClients(newClients: GetClientsListInterface[]) {
+        setClients(newClients: GetClientsListModel[]) {
             clients.value = newClients;
         },
         setPage(page:number) {

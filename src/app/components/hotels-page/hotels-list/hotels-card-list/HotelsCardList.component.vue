@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import HotelCard from '@/app/components/hotels-page/hotels-list/hotel-card/HotelCard.component.vue'
-import type { GetHotelsListInterface } from '@/app/components/hotels-page/hotels-list/requestModel/getHotelsList.interface';
+import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 
 interface Props {
-    hotelsList: GetHotelsListInterface[];
+    hotelsList: GetHotelsListModel[];
 }
 
 const props = withDefaults(defineProps<Props>(), {

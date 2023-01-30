@@ -9,5 +9,5 @@ export const routeLinks: RouterLink[] = [
     { path: '/hotels-page', name: 'hotels-page', title: 'header1.nav2' },
     { path: '/clients-page', name: 'clients-page', title: 'header1.nav3' },
     { path: '/contact-page', name: 'contact-page', title: 'header1.nav4' },
-    { path: '/login-page', name: 'login-page', title: 'header1.nav5' },
+    { path: '/auth-page', name: 'auth-page', title: 'header1.nav5' },
 ]

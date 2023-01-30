@@ -50,6 +50,20 @@
     }
   },
   "login": {
-    "title": "This is the app login layout"
+    "login": {
+      "title": "Login",
+      "email": "User email",
+      "password": "User password",
+      "button": "Login",
+      "account": "You don't have an account?"
+    },
+    "register": {
+      "title": "Create user",
+      "name": "Write a name",
+      "email": "Write an email",
+      "password": "Write a password",
+      "button": "Create account",
+      "account": "Do you already have an account?"
+    }
   }
 }

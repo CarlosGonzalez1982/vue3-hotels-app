@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { toRef } from 'vue';
 import { useRouter } from 'vue-router';
-import type { GetHotelsListInterface } from '@/app/components/hotels-page/hotels-list/requestModel/getHotelsList.interface';
+import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 
 interface Props {
-    hotelCard: GetHotelsListInterface;
+    hotelCard: GetHotelsListModel;
 }
 
 /**

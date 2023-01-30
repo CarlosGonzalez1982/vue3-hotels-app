@@ -50,7 +50,21 @@
     }
   },
   "login": {
-    "title": "Este es el layout del login"
+    "login": {
+      "title": "Inicia sesión",
+      "email": "Escribe tu correo",
+      "password": "Escribe tu contraseña",
+      "button": "Entrar",
+      "account": "¿No tienes cuenta?"
+    },
+    "register": {
+      "title": "Crear usuario",
+      "name": "Escribe tu usuario",
+      "email": "Escribe tu correo",
+      "password": "Escribe tu contraseña",
+      "button": "Crear cuenta",
+      "account": "¿Ya tienes cuenta?"
+    }
   },
 
   "menu": {

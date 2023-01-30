@@ -1,10 +1,10 @@
-import type { GetHotelsListInterface } from '@/app/components/hotels-page/hotels-list/requestModel/getHotelsList.interface';
+import { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 import { environment } from '@/environments/environment';
-
+import { mapperResponseData } from '@/app/components/hotels-page/hotels-list/mapper/getHotelsList.mapper';
 
 const endpoint = '/hotels';
 
-export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> => {
+export const getHotelsListService = async(): Promise<GetHotelsListModel[]> => {
 
     try {
 
@@ -14,7 +14,8 @@ export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> =
          */
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.get<GetHotelsListInterface[]>(`${ endpoint }`);
+                let { data } = await environment.get<GetHotelsListModel[]>(`${ endpoint }`);
+                data = mapperResponseData(data);
                 resolve(data);
             }, 1000);
         });
@@ -30,10 +31,11 @@ export const getHotelsListService = async(): Promise<GetHotelsListInterface[]> =
     }
 }
 
-export const getHotelByIdService = async(id: number): Promise<GetHotelsListInterface> => {
+export const getHotelByIdService = async(id: number): Promise<GetHotelsListModel> => {
 
     try {
-        const { data } = await environment.get<GetHotelsListInterface>(`${ endpoint }/${ id }`);
+        let { data } = await environment.get<GetHotelsListModel>(`${ endpoint }/${ id }`);
+        data = new GetHotelsListModel(data);
         /*const filterData = data.find( dataId => dataId.id === id )!;
         return filterData;*/
         return data;

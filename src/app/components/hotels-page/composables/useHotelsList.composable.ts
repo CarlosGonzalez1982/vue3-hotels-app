@@ -2,15 +2,15 @@ import {ref, computed, watch} from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import { storeToRefs } from "pinia";
 import { getHotelsListService } from '@/app/services/hotels.service';
-import type { GetHotelsListInterface } from '@/app/components/hotels-page/hotels-list/requestModel/getHotelsList.interface';
+import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 import { useHotelsListStore } from '@/app/components/hotels-page/store/hotelsList.store';
 
 
-const hotels = ref<GetHotelsListInterface[]>([]);
+const hotels = ref<GetHotelsListModel[]>([]);
 const hasError = ref<boolean>(false);
 const errorMessage = ref<string | null >(null);
 
-const loadedHotels = (data: GetHotelsListInterface[]) => {
+const loadedHotels = (data: GetHotelsListModel[]) => {
     hasError.value = false;
     errorMessage.value = null;
     hotels.value = data;
@@ -35,7 +35,7 @@ export const useHotelsListComposable = () => {
     );
 
     watch(data,hotels => {
-        if (hotels) hotelsStore.setHotels(hotels)
+        if (hotels) hotelsStore.setHotels(hotels);
     });
 
     return {
