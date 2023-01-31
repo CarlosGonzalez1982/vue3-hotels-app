@@ -23,7 +23,7 @@ export const getHotelsListService = async(): Promise<GetHotelsListModel[]> => {
         /**
          * Descomentar después del test
          */
-        /*const { data } = await environment.get<GetClientsListInterface[]>(endpoint);
+        /*const { data } = await environment.get<GetHotelsListModel[]>(endpoint);
         return data;*/
 
     } catch ( error: any ) {

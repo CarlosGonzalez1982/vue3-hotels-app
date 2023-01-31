@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { GetClientsListInterface } from '@/app/components/clients-page/clients-list/response-model/getClientsList.response-model';
+import { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
 
 interface Props {
-    clients: GetClientsListInterface[];
+    clients: GetClientsListModel[];
 }
 
 const props = withDefaults(defineProps<Props>(), {

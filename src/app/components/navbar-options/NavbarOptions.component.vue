@@ -8,6 +8,7 @@ interface Props {
     links?: RouterLink[];
     submenu?: boolean;
 }
+
 const props = withDefaults(defineProps<Props>(), {
     submenu: false,
     links: () => []

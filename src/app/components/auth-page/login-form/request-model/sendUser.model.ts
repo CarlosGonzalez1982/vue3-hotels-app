@@ -1,4 +1,4 @@
-export class CreateUserModel {
+export class SendUserModel {
 
     email: string = '';
     psswd: string = '';

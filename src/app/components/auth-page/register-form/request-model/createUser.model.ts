@@ -1,8 +1,8 @@
-export class SendUserModel {
+export class CreateUserModel {
 
     name: string = '';
     email: string = '';
-    psswd: number = 0;
+    password: string = '';
 
     constructor( dataValue: any ) {
 
@@ -10,7 +10,7 @@ export class SendUserModel {
 
             this.name = dataValue.name;
             this.email = dataValue.email;
-            this.psswd = dataValue.psswd;
+            this.password = dataValue.psswd;
         }
     }
 }
