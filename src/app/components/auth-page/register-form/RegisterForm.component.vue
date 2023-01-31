@@ -11,13 +11,13 @@
             <span class="focus-input100" data-placeholder="&#xe82a;"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" :data-validate="$t('login.register.password')">
-            <input class="input100" type="password" :placeholder="$t('login.register.password')" required>
+        <div class="wrap-input100 validate-input" :data-validate="$t('login.register.email')">
+            <input class="input100" type="password" :placeholder="$t('login.register.email')" required>
             <span class="focus-input100" data-placeholder="&#xe818;"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" :data-validate="$t('login.register.title')">
-            <input class="input100" type="password" :placeholder="$t('login.register.title')" required>
+        <div class="wrap-input100 validate-input" :data-validate="$t('login.register.password')">
+            <input class="input100" type="password" :placeholder="$t('login.register.password')" required>
             <span class="focus-input100" data-placeholder="&#xe80f;"></span>
         </div>
 

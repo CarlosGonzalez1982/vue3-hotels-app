@@ -1,7 +1,7 @@
 import { environment } from '@/environments/environment';
 import { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
+import { UpdateClientsListModel } from "@/app/components/clients-page/clients-list/request-model/updateClientsList.model";
 import { mapperResponseData } from "@/app/components/clients-page/clients-list/mapper/getClientsList.mapper";
-import {UpdateClientsListModel} from "@/app/components/clients-page/clients-list/request-model/updateClientsList.model";
 
 
 const endpoint = '/clients';
@@ -51,7 +51,7 @@ export const getClientByIdService = async (id: number): Promise<GetClientsListMo
     }
 }
 
-export const updateClientByIdService = async (client: GetClientsListModel): Promise<GetClientsListModel> => {
+export const updateClientByIdService = async (client: UpdateClientsListModel): Promise<UpdateClientsListModel> => {
 
     try {
 
@@ -59,12 +59,12 @@ export const updateClientByIdService = async (client: GetClientsListModel): Prom
 
         return new Promise((resolve) => {
             setTimeout(async () => {
-                const { data } = await environment.patch<GetClientsListModel>(`${ endpoint }/${ dataToSend.id }`, dataToSend);
+                const { data } = await environment.patch<UpdateClientsListModel>(`${ endpoint }/${ dataToSend.id }`, dataToSend);
                 resolve(data);
             }, 1000);
         });
 
-        /*const { data } = await environment.patch<GetClientsListModel>(`${ endpoint }/${ client.id }`, client);
+        /*const { data } = await environment.patch<UpdateClientsListModel>(`${ endpoint }/${ client.id }`, client);
         return data;*/
 
     } catch (error: any) {

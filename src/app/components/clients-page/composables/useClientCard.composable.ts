@@ -28,7 +28,7 @@ export const useClientCardComposable = (id: number) => {
 
     const clientMutation = useMutation( updateClientByIdService );
     //const queryClient = useQueryClient();
-console.log('clientMutation',clientMutation);
+
     watch( data, () => {
             if (data.value) client.value = { ...data.value };
         },{
