@@ -187,3 +187,10 @@ yarn build
 npm run lint
 yarn lint
 ```
+
+### Mock Data Base
+
+```sh
+npm run backend-server
+yarn backend-server
+```

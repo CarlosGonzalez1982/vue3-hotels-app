@@ -1,14 +1,14 @@
-export class SendUserModel {
+export class LoginUserModel {
 
     email: string = '';
-    psswd: string = '';
+    password: string = '';
 
     constructor( dataValue: any ) {
 
         if (dataValue) {
 
             this.email = dataValue.email;
-            this.psswd = dataValue.psswd;
+            this.password = dataValue.psswd;
         }
     }
 }

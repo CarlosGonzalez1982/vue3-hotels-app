@@ -32,7 +32,7 @@ const setResponsiveMenu = (element:any):void => {
         <span class="web-app--version" v-if="props.title">{{ props.title }}</span>
 
         <div class="topnav" id="myTopnav" role="navigation">
-            <div class="header__links-align">
+            <div class="header__links--align">
 
                 <IconPinia to="/" v-if="!props.submenu"/>
 
@@ -43,7 +43,11 @@ const setResponsiveMenu = (element:any):void => {
                 </RouterLink>
             </div>
 
-            <div class="header__links-align" v-if="!props.submenu">
+            <div class="header__links--align" v-if="!props.submenu">
+
+                <a class="header__links--logout" href="javascript:void(0);">
+                    Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a>
 
                 <LanguageSelector/>
 

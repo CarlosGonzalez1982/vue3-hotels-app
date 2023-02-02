@@ -1,18 +1,18 @@
 import { computed } from 'vue';
 import { useMutation } from '@tanstack/vue-query';
-import { createUserService } from '@/app/services/auth.service';
+import { loginUserService } from '@/app/services/auth.service';
 
 
-export const useCreateUserComposable = () => {
+export const useLoginUserComposable = () => {
 
-    const loginMutation = useMutation( createUserService );
+    const loginMutation = useMutation( loginUserService );
 
     return {
         // Properties
         loginMutation,
         // Getters
         // Methods
-        createUserOnSubmit: loginMutation.mutate,
+        loginUserOnSubmit: loginMutation.mutate,
         isUpdating: computed(() => loginMutation.isLoading.value),
         isUpdatingSuccessful: computed(() => loginMutation.isSuccess.value),
         isErrorUpdating: computed(() => loginMutation.isError.value),

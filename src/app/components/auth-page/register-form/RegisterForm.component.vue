@@ -1,23 +1,33 @@
 <script setup lang="ts">
-import { useCreateUserComposable } from "@/app/components/auth-page/register-form/composables/useCreateUser.composable";
-import { watch } from "vue";
+import { toRef, watch } from "vue";
 import { useRouter } from "vue-router";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import { useCreateUserComposable } from "@/app/components/auth-page/register-form/composables/useCreateUser.composable";
+import { useAuthStore } from "@/app/components/auth-page/store/auth.store";
+
 
 const router = useRouter();
+interface Props {
+    regUser?: any;
+}
 
-const {
-    createUserOnSubmit,
-    registerUser,
-    loginMutation,
-    isUpdating,
-    isUpdatingSuccessful,
-    isErrorUpdating } = useCreateUserComposable();
+const props = withDefaults(defineProps<Props>(), {
+    regUser: () => ({
+        name: '',
+        email: '',
+        psswd: ''
+    })
+});
+
+const regUser = toRef(props, 'regUser');
+
+const { createUserOnSubmit, isUpdating, loginMutation } = useCreateUserComposable();
 
 watch( loginMutation.isSuccess, () => {
-    /*setTimeout(() => {
-        loginMutation.reset();
-    }, 2000);*/
+
+    delete regUser.value.psswd;
+    useAuthStore().setAuthParams(regUser.value, loginMutation.data.value.idToken, loginMutation.data.value.refreshToken, 'authenticated');
+
     Swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -27,10 +37,6 @@ watch( loginMutation.isSuccess, () => {
     })
     router.push({ name: 'clients-list' });
 });
-
-/*watch( isErrorUpdating, () => {
-    if (isErrorUpdating) router.replace('/');
-});*/
 </script>
 
 <template>
@@ -41,20 +47,20 @@ watch( loginMutation.isSuccess, () => {
 
     <h3 v-if="isUpdating">Registrando...</h3>
 
-    <form class="login100-form validate-form p-b-33 p-t-5" @submit.prevent="createUserOnSubmit(registerUser)" >
+    <form class="login100-form validate-form p-b-33 p-t-5" @submit.prevent="createUserOnSubmit(regUser)" >
 
         <div class="wrap-input100 validate-input" :data-validate="$t('login.register.name')">
-            <input class="input100" type="text" :placeholder="$t('login.register.name')" v-model="registerUser.name" required>
+            <input class="input100" type="text" :placeholder="$t('login.register.name')" v-model="regUser.name" required>
             <span class="focus-input100" data-placeholder="&#xe82a;"></span>
         </div>
 
         <div class="wrap-input100 validate-input" :data-validate="$t('login.register.email')">
-            <input class="input100" type="email" :placeholder="$t('login.register.email')" v-model="registerUser.email" required>
+            <input class="input100" type="email" :placeholder="$t('login.register.email')" v-model="regUser.email" required>
             <span class="focus-input100" data-placeholder="&#xe818;"></span>
         </div>
 
         <div class="wrap-input100 validate-input" :data-validate="$t('login.register.password')">
-            <input class="input100" type="password" :placeholder="$t('login.register.password')" v-model="registerUser.psswd" required>
+            <input class="input100" type="password" :placeholder="$t('login.register.password')" v-model="regUser.psswd" required>
             <span class="focus-input100" data-placeholder="&#xe80f;"></span>
         </div>
 

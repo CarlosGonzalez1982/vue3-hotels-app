@@ -16,7 +16,7 @@ export const useAuthStore = defineStore('auth', () => {
         authRefreshToken,
         // Getters
         // Actions
-        setAuthParams(user: object, idToken: string, refreshToken: string, userStatus: string) {
+        setAuthParams(user: object|null, idToken: string|null, refreshToken: string|null, userStatus: string) {
             authStatus.value = userStatus;
             authUser.value = user;
             authIdToken.value = idToken;

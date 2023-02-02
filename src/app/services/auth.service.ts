@@ -1,12 +1,14 @@
 import Swal from 'sweetalert2';
-import { useRouter } from "vue-router";
 import { authAPI } from '@/environments/authAPI';
 import { CreateUserModel } from '@/app/components/auth-page/register-form/request-model/createUser.model';
-import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { LoginUserModel } from "@/app/components/auth-page/login-form/request-model/loginUser.model";
+import { useAuthStore } from "@/app/components/auth-page/store/auth.store";
 
-const router = useRouter();
-const endpoint = ':signUp';
+
+const endpointCreate = ':signUp';
 const endpointUpdate = ':update';
+const endpointLogin = ':signInWithPassword';
+const endpointCheckAuth = ':lookup';
 
 export const createUserService = async (user: any): Promise<any> => {
 
@@ -15,21 +17,74 @@ export const createUserService = async (user: any): Promise<any> => {
 
     try {
 
-        const { data } = await authAPI.post<any>(`${ endpoint }`, { email, password, returnSecureToken: true });
-        const { idToken, refreshToken } = data;
+        const { data } = await authAPI.post<any>(`${ endpointCreate }`, { email, password, returnSecureToken: true });
+        const { idToken } = data;
+        await authAPI.post<any>(`${ endpointUpdate }`, { displayName: name, idToken });
 
-        await authAPI.post(`${ endpointUpdate }`, { displayName: name, idToken });
-
-        delete user.psswd;
-        useAuthStore().setAuthParams(user, idToken, refreshToken, 'authenticated');
-
-        return { ok: true };
+        //console.log('data', data);
+        return data;
 
     } catch (error: any) {
 
-        console.error(`Error al guardar el nuevo usuario ${ user.name }`);
+        console.error(`Error al guardar el nuevo usuario: ${ user.name }`);
         await Swal.fire('Error', error.response.data.error.message, 'error');
-        return { ok: false, message: error.response.data.error.message };
-        //throw new Error(error.response.data.error.message);
+        //return { ok: false, message: error.response.data.error.message };
+        throw new Error(error.response.data.error.message);
+    }
+}
+
+export const loginUserService = async (user: any): Promise<any> => {
+
+    const dataToSend = new LoginUserModel(user);
+    const { email, password } = dataToSend;
+
+    try {
+
+        const { data } = await authAPI.post<any>(`${ endpointLogin }`, { email, password, returnSecureToken: true });
+        //console.log('data', data);
+
+        return data;
+
+    } catch (error: any) {
+
+        console.error(`Error al loggear el usuario: ${ user.name }`);
+        await Swal.fire('Error', error.response.data.error.message, 'error');
+        //return { ok: false, message: error.response.data.error.message };
+        throw new Error(error.response.data.error.message);
+    }
+}
+
+export const checkAuthentication = async (): Promise<any> => {
+
+    const idToken = useAuthStore().authIdToken;
+    const refreshToken = useAuthStore().authRefreshToken;
+
+    if( !idToken ) {
+        useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
+        console.error(`Error de token`);
+        await Swal.fire('Error', 'Error de token', 'error');
+        throw new Error('Error de token');
+    }
+
+    try {
+
+        const { data } = await authAPI.post<any>(`${ endpointCheckAuth }`, { idToken });
+        console.log('data', data);
+        const { displayName, email } = data.users[0];
+        const user = {
+            name: displayName,
+            email
+        }
+        useAuthStore().setAuthParams(user, idToken, refreshToken, 'authenticated');
+
+        return data;
+
+    } catch (error: any) {
+
+        useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
+        console.error(`Error de autentificación: ${ error.response.data.error.message }`);
+        await Swal.fire('Error', error.response.data.error.message, 'error');
+        //return { ok: false, message: error.response.data.error.message };
+        throw new Error(error.response.data.error.message);
     }
 }

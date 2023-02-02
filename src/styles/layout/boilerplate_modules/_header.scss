@@ -11,9 +11,19 @@
   border-bottom: 1px solid $c-green-light;
 }
 
-.header__links-align {
+.header__links--align {
   @include flex_center;
   position: relative;
+}
+
+.header__links--logout {
+  margin-right: 24px;
+  &:hover {
+    color: $c-green-light;
+    .fa {
+      margin-left: 3px;
+    }
+  }
 }
 
 .topnav {

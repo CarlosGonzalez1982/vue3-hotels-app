@@ -1,14 +1,25 @@
 <script setup lang="ts">
 //import { RouterView } from 'vue-router'; // No parece necesario importarlo
+import { useMutation } from "@tanstack/vue-query";
 import { routeLinks } from '@/app/router/link-routes.router';
 import NavbarOptions from '@/app/components/navbar-options/NavbarOptions.component.vue';
+import { useAuthStore } from "@/app/components/auth-page/store/auth.store";
+import { checkAuthentication } from "@/app/services/auth.service";
+
+const { authStatus } = useAuthStore();
+const authMutation = useMutation( checkAuthentication );
 </script>
 
 <template>
-    <NavbarOptions title="Pinia App Test" :links="routeLinks" :submenu="false"/>
-    <main class="web-app--container">
-        <RouterView/>
-    </main>
+
+    <!--<h1 v-if="authStatus === 'authenticating'" >{{ authStatus }}</h1>
+
+    <template v-else>-->
+        <NavbarOptions title="Pinia App Test" :links="routeLinks" :submenu="false"/>
+        <main class="web-app--container">
+            <RouterView/>
+        </main>
+    <!--</template>-->
 </template>
 
 <style lang="scss" src="./main.scss"/>
