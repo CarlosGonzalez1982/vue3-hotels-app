@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
+import { GetClientsListModel } from '@/app/components/clients-page/clients-list/response-model/getClientsList.model';
 
 interface Props {
     clients: GetClientsListModel[];

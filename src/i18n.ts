@@ -1,8 +1,8 @@
-import { createI18n } from "vue-i18n";
+import { createI18n } from 'vue-i18n';
 
 // import translations
-import es from "@/assets/locales/es.json";
-import en from "@/assets/locales/en.json";
+import es from '@/assets/locales/es.json';
+import en from '@/assets/locales/en.json';
 
 // configure i18n
 export const i18n = createI18n({

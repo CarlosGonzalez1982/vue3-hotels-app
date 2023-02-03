@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import { VueQueryPlugin } from "@tanstack/vue-query";
+import { VueQueryPlugin } from '@tanstack/vue-query';
 import { i18n } from './i18n';
 import App from './App.vue';
 import router from '@/app/router/index.router';

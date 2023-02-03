@@ -16,16 +16,6 @@
   position: relative;
 }
 
-.header__links--logout {
-  margin-right: 24px;
-  &:hover {
-    color: $c-green-light;
-    .fa {
-      margin-left: 3px;
-    }
-  }
-}
-
 .topnav {
   background-color: $c-black;;
   display: flex;
@@ -101,6 +91,16 @@
 
 .topnav .icon {
   display: none;
+}
+
+.topnav a.header__links--logout {
+  margin-right: 24px;
+  &:hover {
+    color: $c-green-light;
+  }
+  .fa {
+    margin-left: 3px;
+  }
 }
 
 .pinia-container {

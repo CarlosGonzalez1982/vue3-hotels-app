@@ -3,6 +3,8 @@ import HomePage from '@/app/components/home-page/HomePage.component.vue';
 import { hotelsRoute } from '@/app/components/hotels-page/index.router';
 import { clientsRoute } from '@/app/components/clients-page/index.router';
 import { authRoute } from '@/app/components/auth-page/index.router';
+import { isAuthenticatedGuard } from '@/app/components/auth-page/auth-guard.router';
+
 
 const router = createRouter({
 
@@ -25,6 +27,7 @@ const router = createRouter({
         {
             ...clientsRoute,
             path: '/clients-page',
+            beforeEnter: [ isAuthenticatedGuard ],
             //name: 'clients-page',
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { toRef, watch } from "vue";
-import { useRouter } from "vue-router";
-import Swal from "sweetalert2";
-import { useAuthStore } from "@/app/components/auth-page/store/auth.store";
-import { useLoginUserComposable } from "@/app/components/auth-page/login-form/composables/useLoginUser.composable";
+import { toRef, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import Swal from 'sweetalert2';
+import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { useLoginUserComposable } from '@/app/components/auth-page/login-form/composables/useLoginUser.composable';
 
 
 const router = useRouter();

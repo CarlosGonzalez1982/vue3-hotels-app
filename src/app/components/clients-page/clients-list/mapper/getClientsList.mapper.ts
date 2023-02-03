@@ -1,4 +1,4 @@
-import { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
+import { GetClientsListModel } from '@/app/components/clients-page/clients-list/response-model/getClientsList.model';
 
 export const mapperResponseData = ( dataToMapper: any ) => {
 

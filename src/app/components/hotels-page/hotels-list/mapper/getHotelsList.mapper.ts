@@ -1,4 +1,4 @@
-import { GetHotelsListModel } from "@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model";
+import { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 
 export const mapperResponseData = ( dataToMapper: any ) => {
 

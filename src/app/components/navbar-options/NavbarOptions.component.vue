@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import {computed, ref, toRef, watch} from 'vue';
+import { useRouter } from 'vue-router';
 import type { RouterLink } from '@/app/router/link-routes.router';
 import IconPinia from '@/assets/img/icons/IconPinia.vue';
 import LanguageSelector from '@/app/components/shared-components/combo-selector/LanguageSelector.component.vue';
+import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+
 
 interface Props {
     title?: string;
@@ -10,20 +14,42 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+    title: '',
     submenu: false,
     links: () => []
 });
 
+const linksToShow = ref(props.links);
+const { authStatus, authUserName, logout } = useAuthStore();
+const router = useRouter();
+const userName = ref(authUserName);
+
+//console.log('auth',auth);
+/*const navOptions = computed(() => linksToShow.value.filter(link => (link.name !== 'clients-page' && authStatus !== 'authenticated')));*/
+
+/*watch(useAuthStore(), () => {
+    console.log('authUserName.value',userName.value)    },{
+    immediate: true
+})*/
+
+const onLogout = () => {
+    router.push({ name: 'home-page'});
+    logout();
+}
 // TODO: arreglar esta función
-const setResponsiveMenu = (element:any):void => {
+const setResponsiveMenu = (element:any) => {
 
-    let { navBarId } = element.value.id;
+    console.log('navbarId',element);
+    //const navbarId = element.value.id;
+    /*const navbarIdChange = ref(navbarId);
 
-    if (navBarId === 'topnav') {
-        navBarId += 'responsive';
+    if (navbarId === 'topnav') {
+        navbarIdChange.value += 'responsive';
     } else {
-        navBarId = 'topnav';
+        navbarIdChange.value = 'topnav';
     }
+
+    return navbarIdChange;*/
 };
 </script>
 
@@ -36,17 +62,17 @@ const setResponsiveMenu = (element:any):void => {
 
                 <IconPinia to="/" v-if="!props.submenu"/>
 
-                <RouterLink v-for="link of props.links"
-                            :key="link.path"
-                            :to="link.path">
-                    {{ $t(link.title) }}
+                <RouterLink v-for="{ path, title } of linksToShow"
+                            :key="path"
+                            :to="path">
+                    {{ $t(title) }}
                 </RouterLink>
             </div>
 
             <div class="header__links--align" v-if="!props.submenu">
 
-                <a class="header__links--logout" href="javascript:void(0);">
-                    Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <a class="header__links--logout" href="javascript:void(0);" @click="onLogout">
+                    Logout: {{ authUserName }} <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
 
                 <LanguageSelector/>

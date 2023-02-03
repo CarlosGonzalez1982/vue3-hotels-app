@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import SpinnerElement from "@/app/components/shared-components/spinner-element/SpinnerElement.component.vue";
+import SpinnerElement from '@/app/components/shared-components/spinner-element/SpinnerElement.component.vue';
 import { useClientCardComposable } from '@/app/components/clients-page/composables/useClientCard.composable';
 
 const route = useRoute();

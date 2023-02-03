@@ -1,4 +1,4 @@
-import type { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from 'vue-router';
 import ClientsPage from '@/app/components/clients-page/ClientsPage.component.vue';
 
 const ROUTE_NAME = 'clients-page';

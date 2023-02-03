@@ -1,6 +1,6 @@
 import {ref, computed, watch} from 'vue';
 import { useQuery } from '@tanstack/vue-query';
-import { storeToRefs } from "pinia";
+import { storeToRefs } from 'pinia';
 import { getHotelsListService } from '@/app/services/hotels.service';
 import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 import { useHotelsListStore } from '@/app/components/hotels-page/store/hotelsList.store';

@@ -1,7 +1,7 @@
-import { environment } from '@/environments/environment';
-import { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
-import { UpdateClientsListModel } from "@/app/components/clients-page/clients-list/request-model/updateClientsList.model";
-import { mapperResponseData } from "@/app/components/clients-page/clients-list/mapper/getClientsList.mapper";
+import environment from '@/environments/environment';
+import { GetClientsListModel } from '@/app/components/clients-page/clients-list/response-model/getClientsList.model';
+import { UpdateClientsListModel } from '@/app/components/clients-page/clients-list/request-model/updateClientsList.model';
+import { mapperResponseData } from '@/app/components/clients-page/clients-list/mapper/getClientsList.mapper';
 
 
 const endpoint = '/clients';

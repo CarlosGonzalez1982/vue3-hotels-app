@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import type { GetClientsListModel } from "@/app/components/clients-page/clients-list/response-model/getClientsList.model";
+import type { GetClientsListModel } from '@/app/components/clients-page/clients-list/response-model/getClientsList.model';
 
 export const useClientsListStore = defineStore('clients', () => {
 

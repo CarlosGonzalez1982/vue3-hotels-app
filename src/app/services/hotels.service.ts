@@ -1,5 +1,5 @@
 import { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
-import { environment } from '@/environments/environment';
+import environment from '@/environments/environment';
 import { mapperResponseData } from '@/app/components/hotels-page/hotels-list/mapper/getHotelsList.mapper';
 
 const endpoint = '/hotels';

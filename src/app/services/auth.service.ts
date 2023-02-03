@@ -1,8 +1,8 @@
 import Swal from 'sweetalert2';
 import { authAPI } from '@/environments/authAPI';
 import { CreateUserModel } from '@/app/components/auth-page/register-form/request-model/createUser.model';
-import { LoginUserModel } from "@/app/components/auth-page/login-form/request-model/loginUser.model";
-import { useAuthStore } from "@/app/components/auth-page/store/auth.store";
+import { LoginUserModel } from '@/app/components/auth-page/login-form/request-model/loginUser.model';
+import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
 
 
 const endpointCreate = ':signUp';
@@ -41,6 +41,9 @@ export const loginUserService = async (user: any): Promise<any> => {
     try {
 
         const { data } = await authAPI.post<any>(`${ endpointLogin }`, { email, password, returnSecureToken: true });
+        const { idToken, refreshToken } = data;
+        localStorage.setItem( 'idToken', idToken );
+        localStorage.setItem( 'refreshToken', refreshToken );
         //console.log('data', data);
 
         return data;
@@ -56,8 +59,8 @@ export const loginUserService = async (user: any): Promise<any> => {
 
 export const checkAuthentication = async (): Promise<any> => {
 
-    const idToken = useAuthStore().authIdToken;
-    const refreshToken = useAuthStore().authRefreshToken;
+    const idToken = localStorage.getItem('idToken');
+    const refreshToken = localStorage.getItem('refreshToken');
 
     if( !idToken ) {
         useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
@@ -69,7 +72,7 @@ export const checkAuthentication = async (): Promise<any> => {
     try {
 
         const { data } = await authAPI.post<any>(`${ endpointCheckAuth }`, { idToken });
-        console.log('data', data);
+        console.log('data checkAuthentication/////', data);
         const { displayName, email } = data.users[0];
         const user = {
             name: displayName,

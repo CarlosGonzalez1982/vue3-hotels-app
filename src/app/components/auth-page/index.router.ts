@@ -1,4 +1,4 @@
-import type { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from 'vue-router';
 import AuthPage from '@/app/components/auth-page/AuthPage.component.vue';
 
 const ROUTE_NAME = 'auth-page';

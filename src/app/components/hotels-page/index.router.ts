@@ -1,4 +1,4 @@
-import type { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from 'vue-router';
 import HotelsPage from '@/app/components/hotels-page/HotelsPage.component.vue';
 
 const ROUTE_NAME = 'hotels-page';
