@@ -11,7 +11,9 @@ const {
     client,
     isLoading,
     updateClientOnSubmit,
+    deleteClientOnSubmit,
     clientMutation,
+    clientDeleteMutation,
     isUpdating,
     isUpdatingSuccessful,
     isError,
@@ -22,6 +24,10 @@ watch( clientMutation.isSuccess, () => {
     setTimeout(() => {
         clientMutation.reset();
     }, 2000);
+});
+
+watch( clientDeleteMutation.isSuccess, () => {
+    router.push({ name: 'clients-list' });
 });
 
 watch( isError, () => {
@@ -52,6 +58,7 @@ watch( isError, () => {
             <br>
 
             <button type="submit" :disabled="isUpdating">Guardar</button>
+            <button type="button" :disabled="isUpdating" @click="deleteClientOnSubmit(client!)">Eliminar</button>
         </form>
     </div>
 

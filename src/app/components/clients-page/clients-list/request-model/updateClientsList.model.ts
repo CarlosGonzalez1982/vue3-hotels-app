@@ -1,7 +1,7 @@
 export class UpdateClientsListModel {
 
     address: string = '';
-    name1111: string = '';
+    name: string = '';
     id: number = 0;
 
     constructor( dataValue: any ) {
@@ -9,7 +9,7 @@ export class UpdateClientsListModel {
         if (dataValue) {
 
             this.address = dataValue.address;
-            this.name1111 = dataValue.name;
+            this.name = dataValue.name;
             this.id = dataValue.id;
         }
     }

@@ -7,6 +7,7 @@ import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
 
 
 const router = useRouter();
+
 interface Props {
     regUser?: any;
 }
@@ -21,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const regUser = toRef(props, 'regUser');
 
-const { createUserOnSubmit, isUpdating, registerMutation } = useCreateUserComposable();
+const { createUserOnSubmit, createUserOnSubmitInMockDB, isUpdating, registerMutation } = useCreateUserComposable();
 
 watch( registerMutation.isSuccess, () => {
 
@@ -47,7 +48,7 @@ watch( registerMutation.isSuccess, () => {
 
     <h3 v-if="isUpdating">Registrando...</h3>
 
-    <form class="login100-form validate-form p-b-33 p-t-5" @submit.prevent="createUserOnSubmit(regUser)" >
+    <form class="login100-form validate-form p-b-33 p-t-5" @submit.prevent="createUserOnSubmit(regUser); createUserOnSubmitInMockDB(regUser)" >
 
         <div class="wrap-input100 validate-input" :data-validate="$t('login.register.name')">
             <input class="input100" type="text" :placeholder="$t('login.register.name')" v-model="regUser.name" required>

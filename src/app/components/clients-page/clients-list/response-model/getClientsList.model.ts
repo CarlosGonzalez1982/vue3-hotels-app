@@ -25,7 +25,7 @@ export class GetClientsListModel {
             this.gender = dataValue.gender;
             this.id = dataValue.id;
             this.isActive = dataValue.isActive;
-            this.name = dataValue.name1111;
+            this.name = dataValue.name;
             this.phone = dataValue.phone;
             this.picture = dataValue.picture;
         }

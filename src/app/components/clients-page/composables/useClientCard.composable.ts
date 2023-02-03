@@ -1,7 +1,7 @@
 import { computed, watch, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
-import { getClientByIdService, updateClientByIdService } from '@/app/services/clients.service';
+import { deleteClientByIdService, getClientByIdService, updateClientByIdService } from '@/app/services/clients.service';
 import type { GetClientsListModel } from '@/app/components/clients-page/clients-list/response-model/getClientsList.model';
 
 
@@ -27,7 +27,7 @@ export const useClientCardComposable = (id: number) => {
     );
 
     const clientMutation = useMutation( updateClientByIdService );
-    //const queryClient = useQueryClient();
+    const clientDeleteMutation = useMutation( () => deleteClientByIdService(id) );
 
     watch( data, () => {
             if (data.value) client.value = { ...data.value };
@@ -43,11 +43,13 @@ export const useClientCardComposable = (id: number) => {
         // Properties
         client,
         clientMutation,
+        clientDeleteMutation,
         isLoading,
         isError,
         // Getters
         // Methods
         updateClientOnSubmit: clientMutation.mutate,
+        deleteClientOnSubmit: clientDeleteMutation.mutate,
         isUpdating: computed(() => clientMutation.isLoading.value),
         isUpdatingSuccessful: computed(() => clientMutation.isSuccess.value),
         isErrorUpdating: computed(() => clientMutation.isError.value),
