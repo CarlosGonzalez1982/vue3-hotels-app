@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref, toRef, watch} from 'vue';
+import { computed, ref, toRef, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import type { RouterLink } from '@/app/router/link-routes.router';
 import IconPinia from '@/assets/img/icons/IconPinia.vue';
@@ -20,36 +20,40 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const linksToShow = ref(props.links);
-const { authStatus, authUserName, logout } = useAuthStore();
 const router = useRouter();
-const userName = ref(authUserName);
 
-//console.log('auth',auth);
+//TODO: WTF!! Pierde la reactividad!! Why??
+const status = ref(useAuthStore().authStatus);
+const userName = ref(useAuthStore().authUserName);
+const { logout } = useAuthStore();
+console.log('/////authUserName/////',userName.value);
+console.log('/////authStatus/////',status.value);
+
 /*const navOptions = computed(() => linksToShow.value.filter(link => (link.name !== 'clients-page' && authStatus !== 'authenticated')));*/
 
-/*watch(useAuthStore(), () => {
-    console.log('authUserName.value',userName.value)    },{
+watch(status.value, () => {
+    console.log('authUserName',userName);
+    }, {
     immediate: true
-})*/
+})
 
 const onLogout = () => {
     router.push({ name: 'home-page'});
     logout();
 }
-// TODO: arreglar esta función
-const setResponsiveMenu = (element:any) => {
+// TODO: arreglar esta función para el menú responsive
+const setResponsiveMenu = () => {
 
-    console.log('navbarId',element);
     //const navbarId = element.value.id;
-    /*const navbarIdChange = ref(navbarId);
+    /*const navbarClassChange = ref(navbarId);
 
-    if (navbarId === 'topnav') {
-        navbarIdChange.value += 'responsive';
+    if (navbarId === 'myTopnav') {
+        navbarClassChange.value += 'responsive';
     } else {
-        navbarIdChange.value = 'topnav';
+        navbarClassChange.value = 'topnav';
     }
 
-    return navbarIdChange;*/
+    return navbarClassChange;*/
 };
 </script>
 
@@ -71,8 +75,8 @@ const setResponsiveMenu = (element:any) => {
 
             <div class="header__links--align" v-if="!props.submenu">
 
-                <a class="header__links--logout" href="javascript:void(0);" @click="onLogout">
-                    Logout: {{ authUserName }} <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <a class="header__links--logout" v-if="status === 'authenticated'" href="javascript:void(0);" @click="onLogout">
+                    Logout <i class="fa fa-sign-out" aria-hidden="true"></i> {{ userName }}
                 </a>
 
                 <LanguageSelector/>

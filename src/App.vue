@@ -6,7 +6,7 @@ import NavbarOptions from '@/app/components/navbar-options/NavbarOptions.compone
 import { checkAuthentication } from '@/app/services/auth.service';
 import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
 
-const { authStatus } = useAuthStore();
+const authStatus = useAuthStore().authStatus;
 useMutation(checkAuthentication);
 </script>
 

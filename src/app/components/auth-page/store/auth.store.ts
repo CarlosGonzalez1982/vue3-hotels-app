@@ -1,4 +1,4 @@
-import {computed, ref} from 'vue';
+import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useAuthStore:any = defineStore('auth', () => {
@@ -10,6 +10,8 @@ export const useAuthStore:any = defineStore('auth', () => {
 
     const logout = () => {
         useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
+        localStorage.removeItem('idToken')
+        localStorage.removeItem('refreshToken')
     };
 
     return {

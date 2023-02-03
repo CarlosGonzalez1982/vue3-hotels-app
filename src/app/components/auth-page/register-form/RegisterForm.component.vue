@@ -21,12 +21,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 const regUser = toRef(props, 'regUser');
 
-const { createUserOnSubmit, isUpdating, loginMutation } = useCreateUserComposable();
+const { createUserOnSubmit, isUpdating, registerMutation } = useCreateUserComposable();
 
-watch( loginMutation.isSuccess, () => {
+watch( registerMutation.isSuccess, () => {
 
     delete regUser.value.psswd;
-    useAuthStore().setAuthParams(regUser.value, loginMutation.data.value.idToken, loginMutation.data.value.refreshToken, 'authenticated');
+    useAuthStore().setAuthParams(regUser.value, null, null, 'authenticating');
 
     Swal.fire({
         position: 'top-end',
@@ -35,7 +35,7 @@ watch( loginMutation.isSuccess, () => {
         showConfirmButton: false,
         timer: 1500
     })
-    router.push({ name: 'clients-list' });
+    router.push({ name: 'login-form' });
 });
 </script>
 

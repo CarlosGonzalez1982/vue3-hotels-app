@@ -5,16 +5,16 @@ import { createUserService } from '@/app/services/auth.service';
 
 export const useCreateUserComposable = () => {
 
-    const loginMutation = useMutation( createUserService );
+    const registerMutation = useMutation( createUserService );
 
     return {
         // Properties
-        loginMutation,
+        registerMutation,
         // Getters
         // Methods
-        createUserOnSubmit: loginMutation.mutate,
-        isUpdating: computed(() => loginMutation.isLoading.value),
-        isUpdatingSuccessful: computed(() => loginMutation.isSuccess.value),
-        isErrorUpdating: computed(() => loginMutation.isError.value),
+        createUserOnSubmit: registerMutation.mutate,
+        isUpdating: computed(() => registerMutation.isLoading.value),
+        isUpdatingSuccessful: computed(() => registerMutation.isSuccess.value),
+        isErrorUpdating: computed(() => registerMutation.isError.value),
     }
 }
