@@ -44,7 +44,7 @@ export const loginUserService = async (user: any): Promise<any> => {
         const { idToken, refreshToken } = data;
         localStorage.setItem( 'idToken', idToken );
         localStorage.setItem( 'refreshToken', refreshToken );
-        console.log('data', data);
+        //console.log('data', data);
 
         return data;
 

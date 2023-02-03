@@ -22,39 +22,17 @@ const props = withDefaults(defineProps<Props>(), {
 const linksToShow = ref(props.links);
 const router = useRouter();
 
-//TODO: WTF!! Pierde la reactividad!! Why??
-const status = ref(useAuthStore().authStatus);
-const userName = ref(useAuthStore().authUserName);
+const status = computed(() => useAuthStore().authStatus);
+const userName = computed(() => useAuthStore().authUserName);
 const { logout } = useAuthStore();
-console.log('/////authUserName/////',userName.value);
-console.log('/////authStatus/////',status.value);
-
-/*const navOptions = computed(() => linksToShow.value.filter(link => (link.name !== 'clients-page' && authStatus !== 'authenticated')));*/
-
-watch(status.value, () => {
-    console.log('authUserName',userName);
-    }, {
-    immediate: true
-})
+const navOptions = computed(() => linksToShow.value.filter( link =>
+    (link.name !== 'clients-page' && status.value !== 'authenticated') ||
+    (link.name !== 'auth-page' && status.value === 'authenticated')));
 
 const onLogout = () => {
     router.push({ name: 'home-page'});
     logout();
 }
-// TODO: arreglar esta función para el menú responsive
-const setResponsiveMenu = () => {
-
-    //const navbarId = element.value.id;
-    /*const navbarClassChange = ref(navbarId);
-
-    if (navbarId === 'myTopnav') {
-        navbarClassChange.value += 'responsive';
-    } else {
-        navbarClassChange.value = 'topnav';
-    }
-
-    return navbarClassChange;*/
-};
 </script>
 
 <template>
@@ -66,7 +44,7 @@ const setResponsiveMenu = () => {
 
                 <IconPinia to="/" v-if="!props.submenu"/>
 
-                <RouterLink v-for="{ path, title } of linksToShow"
+                <RouterLink v-for="{ path, title } of navOptions"
                             :key="path"
                             :to="path">
                     {{ $t(title) }}
@@ -76,7 +54,7 @@ const setResponsiveMenu = () => {
             <div class="header__links--align" v-if="!props.submenu">
 
                 <a class="header__links--logout" v-if="status === 'authenticated'" href="javascript:void(0);" @click="onLogout">
-                    Logout <i class="fa fa-sign-out" aria-hidden="true"></i> {{ userName }}
+                    Logout <i class="fa fa-sign-out" aria-hidden="true"></i><br class="carry--return"> {{ userName }}
                 </a>
 
                 <LanguageSelector/>

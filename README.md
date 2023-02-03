@@ -174,7 +174,8 @@ npm run dev
 yarn dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Type-Check, Compile and Minify fo
+r Production
 
 ```sh
 npm run build

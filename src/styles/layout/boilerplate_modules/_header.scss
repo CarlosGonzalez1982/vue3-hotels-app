@@ -95,11 +95,20 @@
 
 .topnav a.header__links--logout {
   margin-right: 24px;
+  @include media($mobile) {
+    font-size: px2rem(12);
+  }
   &:hover {
     color: $c-green-light;
   }
   .fa {
     margin-left: 3px;
+  }
+  .carry--return {
+    display: none;
+    @include media($mobile) {
+      display: block;
+    }
   }
 }
 
