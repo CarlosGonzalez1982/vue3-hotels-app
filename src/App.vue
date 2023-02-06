@@ -7,7 +7,7 @@ import { checkAuthentication } from '@/app/services/auth.service';
 import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
 
 const authStatus = useAuthStore().authStatus;
-useMutation(checkAuthentication);
+checkAuthentication();
 </script>
 
 <template>

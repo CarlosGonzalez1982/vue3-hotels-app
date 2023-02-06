@@ -26,7 +26,7 @@ watch( loginMutation.isSuccess, () => {
 
     logUser.value.name = loginMutation.data.value.displayName;
     useAuthStore().setAuthParams(logUser.value, loginMutation.data.value.idToken, loginMutation.data.value.refreshToken, 'authenticated');
-    localStorage.setItem( 'testStorageViewLogin', 'esto es una prubea en vista' );
+
     Swal.fire({
         position: 'top-end',
         icon: 'success',

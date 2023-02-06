@@ -20,4 +20,7 @@ VueQueryPlugin.install(app, {
 app.use(createPinia());
 app.use(router);
 app.use(i18n);
+app.component("modal-element", {
+    template: "#modal-template"
+});
 app.mount('#app');

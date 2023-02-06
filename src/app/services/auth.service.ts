@@ -65,8 +65,9 @@ export const checkAuthentication = async (): Promise<any> => {
     if( !idToken ) {
         useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
         console.error(`Error de token`);
-        await Swal.fire('Error', 'Error de token', 'error');
-        throw new Error('Error de token');
+        /*await Swal.fire('Error', 'Error de token', 'error');
+        throw new Error('Error de token');*/
+        return ;
     }
 
     try {

@@ -6,7 +6,7 @@ import { loginUserService } from '@/app/services/auth.service';
 export const useLoginUserComposable = () => {
 
     const loginMutation = useMutation( loginUserService );
-    localStorage.setItem( 'testStorage', 'esto es una prueba' );
+
     return {
         // Properties
         loginMutation,
