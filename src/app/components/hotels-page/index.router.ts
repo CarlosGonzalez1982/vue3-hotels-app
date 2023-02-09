@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 import HotelsPage from '@/app/components/hotels-page/HotelsPage.component.vue';
+import { isAuthenticatedGuard } from '@/app/components/auth-page/auth-guard.router';
 
 const ROUTE_NAME = 'hotels-page';
 
@@ -29,6 +30,7 @@ export const hotelsRoute: RouteRecordRaw = {
         {
             path: `/${ ROUTE_NAME }/search`,
             name: 'hotel-search',
+            beforeEnter: [ isAuthenticatedGuard ],
             props: {
                 title: 'header2.nav3',
                 visible: true

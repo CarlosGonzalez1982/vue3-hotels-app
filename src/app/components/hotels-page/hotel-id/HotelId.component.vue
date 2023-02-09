@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import {computed, ref, watchEffect} from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useHotelCardComposable } from '@/app/components/hotels-page/composables/useHotelCard.composable';
 import SpinnerElement from '@/app/components/shared-components/spinner-element/SpinnerElement.component.vue';
 import ModalElement from '@/app/components/shared-components/modal-element/ModalElement.component.vue';
 import { useCounterStore } from '@/app/stores/counterElement';
-import { isAuthenticatedGuard } from "@/app/components/auth-page/auth-guard.router";
-import {useAuthStore} from "@/app/components/auth-page/store/auth.store";
+import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
 import Swal from "sweetalert2";
 
 
@@ -83,16 +82,14 @@ const verifyLog = () => {
             </template>
 
             <template v-slot:footer>
-                <button class="modal-default-button" @click="emits('showModal', count); showModal = false" :disabled="!count">
+                <button type="submit" class="modal-default-button" @click="emits('showModal', count); showModal = false" :disabled="!count">
                     Reservar
                 </button>
-                <button class="modal-default-button" @click="restart; showModal = false">
+                <button type="button" class="modal-default-button" @click="restart; showModal = false">
                     Cancelar
                 </button>
             </template>
         </ModalElement>
-
-
     </section>
 </template>
 

@@ -3,7 +3,7 @@ import { authAPI } from '@/environments/authAPI';
 import { CreateUserModel } from '@/app/components/auth-page/register-form/request-model/createUser.model';
 import { LoginUserModel } from '@/app/components/auth-page/login-form/request-model/loginUser.model';
 import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
-
+import router from "@/app/router/index.router";
 
 const endpointCreate = ':signUp';
 const endpointUpdate = ':update';
@@ -85,7 +85,8 @@ export const checkAuthentication = async (): Promise<any> => {
 
     } catch (error: any) {
 
-        useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
+        useAuthStore().logout();
+        await router.push({name: 'home-page'});
         console.error(`Error de autentificación: ${ error.response.data.error.message }`);
         await Swal.fire('Error', error.response.data.error.message, 'error');
         //return { ok: false, message: error.response.data.error.message };
