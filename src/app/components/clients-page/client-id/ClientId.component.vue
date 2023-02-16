@@ -33,15 +33,14 @@ watch( clientDeleteMutation.isSuccess, () => {
     router.push({ name: 'clients-list' });
 });
 
+watch( isUpdatingSuccessful, () => {
+    router.push({ name: 'clients-list' });
+});
+
 watch( isError, () => {
     if (isError.value) router.replace('/');
 });
 
-interface Emits {
-    (event: 'showModal', client: any):void,
-}
-
-const emits = defineEmits<Emits>();
 </script>
 
 <template>
@@ -78,7 +77,7 @@ const emits = defineEmits<Emits>();
     </code>
 
     <ModalElement name="modal-element" v-if="showModal">
-        <!-- overwrite default content -->
+
         <template v-slot:header>
             <h3>Modifica los datos del cliente:</h3>
         </template>
@@ -115,19 +114,11 @@ const emits = defineEmits<Emits>();
                        placeholder="Teléfono"
                        v-model="client.phone"/>
                 <br>
-                <!--<input type="text"
-                       class="input__form--txt"
-                       placeholder="Foto"
-                       v-model="client.picture"/>
-                <br>-->
-                <code>
-                    {{ client }}
-                </code>
             </form>
         </template>
 
         <template v-slot:footer>
-            <button type="submit" class="modal-default-button" @click="emits('showModal', client); showModal = false">
+            <button type="submit" class="modal-default-button" @click="showModal = false">
                 Editar
             </button>
             <button type="reset" class="modal-default-button" @click="showModal = false">

@@ -74,7 +74,7 @@ export const updateClientByIdService = async (client: UpdateClientsListModel): P
     try {
 
         const dataToSend = new UpdateClientsListModel(client);
-
+        console.log('data to update request/////', dataToSend);
         /**
          * Ralentizamos 1 segundo la conexión para ver si funciona la visualización de caché
          * Comentar después del test
@@ -82,6 +82,7 @@ export const updateClientByIdService = async (client: UpdateClientsListModel): P
         return new Promise((resolve) => {
             setTimeout(async () => {
                 const { data } = await environment.patch<UpdateClientsListModel>(`${ endpoint }/${ dataToSend.id }`, dataToSend);
+                console.log('data to update response/////', data);
                 resolve(data);
             }, 1000);
         });
