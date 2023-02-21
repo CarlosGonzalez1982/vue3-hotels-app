@@ -14,71 +14,6 @@
       "picture": "https://via.placeholder.com/150"
     },
     {
-      "address": "477 Gain Court, Crayne, New York, 8918",
-      "age": 62,
-      "company": "COLLAIRE",
-      "email": "mcclurerollins@collaire.com",
-      "eyeColor": "brown",
-      "gender": "male",
-      "id": 2,
-      "isActive": false,
-      "name": "Mcclure Rollins",
-      "phone": "+1 (872) 492-2335",
-      "picture": "https://via.placeholder.com/150"
-    },
-    {
-      "address": "717 Montgomery Street, Detroit, Georgia, 2028",
-      "age": 61,
-      "company": "RONELON",
-      "email": "leachworkman@ronelon.com",
-      "eyeColor": "brown",
-      "gender": "male",
-      "id": 3,
-      "isActive": true,
-      "name": "Leach Workman",
-      "phone": "+1 (927) 492-2178",
-      "picture": "https://via.placeholder.com/150"
-    },
-    {
-      "address": "984 Sharon Street, Crawfordsville, North Dakota, 2255",
-      "age": 56,
-      "company": "BITENDREX",
-      "email": "jeannieclay@bitendrex.com",
-      "eyeColor": "brown",
-      "gender": "female",
-      "id": 4,
-      "isActive": false,
-      "name": "Jeannie Clay",
-      "phone": "+1 (903) 576-2973",
-      "picture": "https://via.placeholder.com/150"
-    },
-    {
-      "address": "946 Prospect Place, Sussex, Maryland, 4040",
-      "age": 58,
-      "company": "BITREX",
-      "email": "colemanmorrison@bitrex.com",
-      "eyeColor": "brown",
-      "gender": "male",
-      "id": 5,
-      "isActive": true,
-      "name": "Coleman Morrison",
-      "phone": "+1 (987) 422-3093",
-      "picture": "https://via.placeholder.com/150"
-    },
-    {
-      "address": "138 Channel Avenue, Bluetown, Virginia, 4304",
-      "age": 21,
-      "company": "EARTHPURE",
-      "email": "barneswoodward@earthpure.com",
-      "eyeColor": "brown",
-      "gender": "male",
-      "id": 6,
-      "isActive": true,
-      "name": "Barnes Woodward",
-      "phone": "+1 (902) 500-2903",
-      "picture": "https://via.placeholder.com/150"
-    },
-    {
       "address": "246 Pioneer Street, Bowie, Kansas, 3536",
       "age": 26,
       "company": "AMRIL",
@@ -105,19 +40,6 @@
       "picture": "https://via.placeholder.com/150"
     },
     {
-      "address": "505 Hancock Street, Wright, Louisiana, 1937",
-      "age": 54,
-      "company": "UNCORP",
-      "email": "judithnoel@uncorp.com",
-      "eyeColor": "blue",
-      "gender": "female",
-      "id": 9,
-      "isActive": false,
-      "name": "Judith Noel",
-      "phone": "+1 (937) 471-2679",
-      "picture": "https://via.placeholder.com/150"
-    },
-    {
       "address": "601 Maujer Street, Johnsonburg, Arkansas, 1975",
       "age": 40,
       "company": "KIDSTOCK",
@@ -141,19 +63,6 @@
       "isActive": true,
       "name": "Lester Gilmore",
       "phone": "+1 (854) 495-2874",
-      "picture": "https://via.placeholder.com/150"
-    },
-    {
-      "address": "148 Moore Place, Henrietta, Idaho, 3425",
-      "age": 44,
-      "company": "PETICULAR",
-      "email": "acevedomueller@peticular.com",
-      "eyeColor": "blue",
-      "gender": "male",
-      "id": 12,
-      "isActive": false,
-      "name": "Acevedo Mueller",
-      "phone": "+1 (879) 487-3074",
       "picture": "https://via.placeholder.com/150"
     },
     {

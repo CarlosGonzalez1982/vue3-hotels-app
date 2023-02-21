@@ -31,7 +31,11 @@ export const useClientCardComposable = (id: number) => {
     );
 
     const clientMutation = useMutation( updateClientByIdService );
-    const clientDeleteMutation = useMutation( () => deleteClientByIdService(id) );
+    const clientDeleteMutation = useMutation( {
+        mutationFn: () => deleteClientByIdService(id),
+        retry: false,
+        cacheTime: 0
+    });
 
     watch( data, () => {
             if (data.value) {

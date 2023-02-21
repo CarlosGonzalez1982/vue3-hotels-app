@@ -5,6 +5,7 @@ import SpinnerElement from '@/app/components/shared-components/spinner-element/S
 import ModalElement from '@/app/components/shared-components/modal-element/ModalElement.component.vue';
 import { useClientCardComposable } from '@/app/components/clients-page/composables/useClientCard.composable';
 import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import Swal from "sweetalert2";
 
 const route = useRoute();
 const router = useRouter();
@@ -36,16 +37,49 @@ watch( clientMutation.isSuccess, () => {
 });
 
 watch( clientDeleteMutation.isSuccess, () => {
+    clientMutation.reset();
     router.push({ name: 'clients-list' });
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Cliente eliminado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+    })
 });
 
 watch( isUpdatingSuccessful, () => {
     router.push({ name: 'clients-list' });
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Cliente modificado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+    })
 });
 
 watch( isError, () => {
     if (isError.value) router.replace('/');
 });
+
+const confirmDeleteClient = ( item: any ) => {
+    Swal.fire({
+
+        title: '¿Estás seguro de eliminar el cliente?',
+        text: "No podrás revertir el cambio",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#00bd7e',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+
+    }).then((result) => {
+
+        if (result.isConfirmed) deleteClientOnSubmit(item);
+    })
+}
 </script>
 
 <template>
@@ -95,7 +129,7 @@ watch( isError, () => {
                    disabled/>
             <br>
             <button type="submit" :disabled="isUpdating">Guardar</button>
-            <button type="button" :disabled="isUpdating" @click="deleteClientOnSubmit(client)">Eliminar</button>
+            <button type="button" :disabled="isUpdating" @click="confirmDeleteClient(client);">Eliminar</button>
             <button type="button" :disabled="isUpdating" @click="verifyLog(); duplicateClient(client); showModal = true">Edita otras opciones</button>
         </form>
     </div>

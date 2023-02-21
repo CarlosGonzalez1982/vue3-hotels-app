@@ -3,6 +3,7 @@ import { GetClientsListModel } from '@/app/components/clients-page/clients-list/
 import { UpdateClientsListModel } from '@/app/components/clients-page/clients-list/request-model/updateClientsList.model';
 import { mapperResponseData } from '@/app/components/clients-page/clients-list/mapper/getClientsList.mapper';
 import { CreateUserModel } from '@/app/components/auth-page/register-form/request-model/createUser.model';
+import Swal from "sweetalert2";
 
 
 const endpoint = '/clients';
@@ -108,6 +109,11 @@ export const deleteClientByIdService = async (id: number): Promise<any> => {
     } catch (error: any) {
 
         console.error(`No se pudo eliminar al cliente con id ${ id }`);
+        await Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se ha podido eliminar el cliente'
+        })
         throw new Error(error);
     }
 }
