@@ -6,7 +6,6 @@ import SpinnerElement from '@/app/components/shared-components/spinner-element/S
 import ModalElement from '@/app/components/shared-components/modal-element/ModalElement.component.vue';
 import { useCounterStore } from '@/app/stores/counterElement';
 import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
-import Swal from "sweetalert2";
 
 
 const router = useRouter();
@@ -25,6 +24,7 @@ const {
     hasError,
     isLoading,
     hotel,
+    verifyLog
 } = useHotelCardComposable(+id);
 
 watchEffect(() => {
@@ -38,13 +38,6 @@ interface Emits {
 }
 
 const emits = defineEmits<Emits>();
-
-const verifyLog = () => {
-
-    if (authStatus != 'authenticated') {
-        Swal.fire('Error', 'Para poder reservar tienes que estar loggeado', 'error');
-    }
-}
 </script>
 
 <template>

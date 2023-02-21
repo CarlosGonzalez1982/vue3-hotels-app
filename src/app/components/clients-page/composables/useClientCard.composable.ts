@@ -3,11 +3,15 @@ import { useRouter } from 'vue-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
 import { deleteClientByIdService, getClientByIdService, updateClientByIdService } from '@/app/services/clients.service';
 import type { GetClientsListModel } from '@/app/components/clients-page/clients-list/response-model/getClientsList.model';
+import Swal from "sweetalert2";
+import {useAuthStore} from "@/app/components/auth-page/store/auth.store";
 
 
 export const useClientCardComposable = (id: number) => {
 
     const client = ref<GetClientsListModel>();
+    const clientEdit = ref<GetClientsListModel>();
+    const authStatus = useAuthStore().authStatus;
 
     /**
      * useQuery es para recoger peticiones get del store de la caché
@@ -30,7 +34,9 @@ export const useClientCardComposable = (id: number) => {
     const clientDeleteMutation = useMutation( () => deleteClientByIdService(id) );
 
     watch( data, () => {
-            if (data.value) client.value = { ...data.value };
+            if (data.value) {
+                client.value = { ...data.value };
+            }
         },{
         immediate: true
     });
@@ -42,6 +48,7 @@ export const useClientCardComposable = (id: number) => {
     return {
         // Properties
         client,
+        clientEdit,
         clientMutation,
         clientDeleteMutation,
         isLoading,
@@ -49,7 +56,16 @@ export const useClientCardComposable = (id: number) => {
         // Getters
         // Methods
         updateClientOnSubmit: clientMutation.mutate,
+        updateClientFromModal: clientMutation.mutate,
         deleteClientOnSubmit: clientDeleteMutation.mutate,
+        duplicateClient( param: any ) {
+            clientEdit.value = { ...param }
+        },
+        verifyLog() {
+            if (authStatus != 'authenticated') {
+                Swal.fire('Error', 'Para cambiar los datos del cliente tienes que estar loggeado', 'error');
+            }
+        },
         isUpdating: computed(() => clientMutation.isLoading.value),
         isUpdatingSuccessful: computed(() => clientMutation.isSuccess.value),
         isErrorUpdating: computed(() => clientMutation.isError.value),

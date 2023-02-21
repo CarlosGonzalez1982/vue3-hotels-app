@@ -9,7 +9,7 @@ const environment = axios.create({
  */
 environment.interceptors.request.use( (config) => {
 
-    const authIdToken = localStorage.getItem('idToken');
+    const authIdToken = sessionStorage.getItem('idToken');
 
     config.params = {
         auth: authIdToken

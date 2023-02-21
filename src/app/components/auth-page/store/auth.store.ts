@@ -10,8 +10,8 @@ export const useAuthStore:any = defineStore('auth', () => {
 
     const logout = () => {
         useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
-        localStorage.removeItem('idToken')
-        localStorage.removeItem('refreshToken')
+        sessionStorage.removeItem('idToken')
+        sessionStorage.removeItem('refreshToken')
     };
 
     return {

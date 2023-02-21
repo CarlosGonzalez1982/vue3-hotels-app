@@ -42,8 +42,8 @@ export const loginUserService = async (user: any): Promise<any> => {
 
         const { data } = await authAPI.post<any>(`${ endpointLogin }`, { email, password, returnSecureToken: true });
         const { idToken, refreshToken } = data;
-        localStorage.setItem( 'idToken', idToken );
-        localStorage.setItem( 'refreshToken', refreshToken );
+        sessionStorage.setItem( 'idToken', idToken );
+        sessionStorage.setItem( 'refreshToken', refreshToken );
         //console.log('data', data);
 
         return data;
@@ -59,11 +59,12 @@ export const loginUserService = async (user: any): Promise<any> => {
 
 export const checkAuthentication = async (): Promise<any> => {
 
-    const idToken = localStorage.getItem('idToken');
-    const refreshToken = localStorage.getItem('refreshToken');
+    const idToken = sessionStorage.getItem('idToken');
+    const refreshToken = sessionStorage.getItem('refreshToken');
 
     if( !idToken ) {
         useAuthStore().setAuthParams(null, null, null, 'not-authenticated');
+        useAuthStore().logout();
         console.error(`Error de token`);
         /*await Swal.fire('Error', 'Error de token', 'error');
         throw new Error('Error de token');*/

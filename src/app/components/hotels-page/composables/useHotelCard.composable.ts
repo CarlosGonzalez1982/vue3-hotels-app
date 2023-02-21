@@ -2,6 +2,8 @@ import { ref, computed } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import { getHotelByIdService } from '@/app/services/hotels.service';
 import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
+import Swal from 'sweetalert2';
+import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
 
 
 const hotelSet = ref<{ [id: number]: GetHotelsListModel }>({});
@@ -31,6 +33,9 @@ export const useHotelCardComposable = (id: number) => {
         }
     );
 
+    const authStatus = useAuthStore().authStatus;
+
+
     return {
         // Properties
         errorMessage,
@@ -39,5 +44,10 @@ export const useHotelCardComposable = (id: number) => {
         // Getters
         hotel: computed<GetHotelsListModel | null>(() => hotelSet.value[id]),
         // Methods
+        verifyLog() {
+            if (authStatus != 'authenticated') {
+                Swal.fire('Error', 'Para poder reservar tienes que estar loggeado', 'error');
+            }
+        }
     }
 }

@@ -4,23 +4,29 @@ import { useRoute, useRouter } from 'vue-router';
 import SpinnerElement from '@/app/components/shared-components/spinner-element/SpinnerElement.component.vue';
 import ModalElement from '@/app/components/shared-components/modal-element/ModalElement.component.vue';
 import { useClientCardComposable } from '@/app/components/clients-page/composables/useClientCard.composable';
+import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
 
 const route = useRoute();
 const router = useRouter();
 
 const showModal = ref(false);
+const authStatus = useAuthStore().authStatus;
 
 const {
     client,
+    clientEdit,
     isLoading,
     updateClientOnSubmit,
+    updateClientFromModal,
     deleteClientOnSubmit,
     clientMutation,
     clientDeleteMutation,
+    duplicateClient,
+    verifyLog,
     isUpdating,
     isUpdatingSuccessful,
     isError,
-    isErrorUpdating
+    isErrorUpdating,
 } = useClientCardComposable( +route.params.id );
 
 watch( clientMutation.isSuccess, () => {
@@ -40,7 +46,6 @@ watch( isUpdatingSuccessful, () => {
 watch( isError, () => {
     if (isError.value) router.replace('/');
 });
-
 </script>
 
 <template>
@@ -65,10 +70,33 @@ watch( isError, () => {
                    placeholder="Dirección"
                    v-model="client.address"/>
             <br>
-
+            <input type="number"
+                   class="input__form--txt"
+                   placeholder="Edad"
+                   v-model="client.age"
+                   disabled/>
+            <br>
+            <input type="text"
+                   class="input__form--txt"
+                   placeholder="Email"
+                   v-model="client.email"
+                   disabled/>
+            <br>
+            <input type="text"
+                   class="input__form--txt"
+                   placeholder="Género"
+                   v-model="client.gender"
+                   disabled/>
+            <br>
+            <input type="text"
+                   class="input__form--txt"
+                   placeholder="Teléfono"
+                   v-model="client.phone"
+                   disabled/>
+            <br>
             <button type="submit" :disabled="isUpdating">Guardar</button>
             <button type="button" :disabled="isUpdating" @click="deleteClientOnSubmit(client)">Eliminar</button>
-            <button type="button" :disabled="isUpdating" @click="showModal = true">Edita otras opciones</button>
+            <button type="button" :disabled="isUpdating" @click="verifyLog(); duplicateClient(client); showModal = true">Edita otras opciones</button>
         </form>
     </div>
 
@@ -76,49 +104,52 @@ watch( isError, () => {
         {{ client }}
     </code>
 
-    <ModalElement name="modal-element" v-if="showModal">
+    <ModalElement name="modal-element" v-if="showModal && authStatus === 'authenticated'">
 
         <template v-slot:header>
             <h3>Modifica los datos del cliente:</h3>
         </template>
 
         <template v-slot:body>
-            <form @submit.prevent="updateClientOnSubmit(client)">
+            <form @submit.prevent="">
                 <input type="text"
                        class="input__form--txt"
                        placeholder="Nombre"
-                       v-model="client.name"/>
+                       v-model="clientEdit.name"/>
                 <br>
                 <input type="text"
                        class="input__form--txt"
                        placeholder="Dirección"
-                       v-model="client.address"/>
+                       v-model="clientEdit.address"/>
                 <br>
                 <input type="number"
                        class="input__form--txt"
                        placeholder="Edad"
-                       v-model="client.age"/>
+                       v-model="clientEdit.age"/>
                 <br>
                 <input type="text"
                        class="input__form--txt"
-                       placeholder="email"
-                       v-model="client.email"/>
+                       placeholder="Email"
+                       v-model="clientEdit.email"/>
                 <br>
                 <input type="text"
                        class="input__form--txt"
                        placeholder="Género"
-                       v-model="client.gender"/>
+                       v-model="clientEdit.gender"/>
                 <br>
                 <input type="text"
                        class="input__form--txt"
                        placeholder="Teléfono"
-                       v-model="client.phone"/>
+                       v-model="clientEdit.phone"/>
                 <br>
+                <code>
+                    {{ clientEdit }}
+                </code>
             </form>
         </template>
 
         <template v-slot:footer>
-            <button type="submit" class="modal-default-button" @click="showModal = false">
+            <button type="submit" class="modal-default-button" @click="updateClientFromModal(clientEdit);showModal = false">
                 Editar
             </button>
             <button type="reset" class="modal-default-button" @click="showModal = false">
