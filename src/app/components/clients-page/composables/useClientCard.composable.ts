@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
 import { deleteClientByIdService, getClientByIdService, updateClientByIdService } from '@/app/services/clients.service';
 import type { GetClientsListModel } from '@/app/components/clients-page/clients-list/response-model/getClientsList.model';
 import Swal from "sweetalert2";
-import {useAuthStore} from "@/app/components/auth-page/store/auth.store";
+import {useAuthStore} from "@/app/stores/auth.store";
 
 
 export const useClientCardComposable = (id: number) => {

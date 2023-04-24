@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 import type { RouterLink } from '@/app/router/link-routes.router';
 import IconPinia from '@/assets/img/icons/IconPinia.vue';
 import LanguageSelector from '@/app/components/shared-components/combo-selector/LanguageSelector.component.vue';
-import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { useAuthStore } from '@/app/stores/auth.store';
 
 
 interface Props {

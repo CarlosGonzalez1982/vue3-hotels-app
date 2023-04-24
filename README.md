@@ -72,8 +72,6 @@ define: {
    │    │    │    │
    │    │    │    ├── composables/
    │    │    │    │
-   │    │    │    ├── store/
-   │    │    │    │
    │    │    │    ├── children-page/
    │    │    │    │
    │    │    │    ├── layout.vue
@@ -174,8 +172,7 @@ npm run dev
 yarn dev
 ```
 
-### Type-Check, Compile and Minify fo
-r Production
+### Type-Check, Compile and Minify for Production
 
 ```sh
 npm run build

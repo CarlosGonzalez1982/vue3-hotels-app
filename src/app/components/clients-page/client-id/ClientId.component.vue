@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import SpinnerElement from '@/app/components/shared-components/spinner-element/SpinnerElement.component.vue';
 import ModalElement from '@/app/components/shared-components/modal-element/ModalElement.component.vue';
 import { useClientCardComposable } from '@/app/components/clients-page/composables/useClientCard.composable';
-import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { useAuthStore } from '@/app/stores/auth.store';
 import Swal from "sweetalert2";
 
 const route = useRoute();

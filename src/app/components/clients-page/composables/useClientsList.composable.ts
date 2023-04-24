@@ -2,7 +2,7 @@ import { computed, watch } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import { storeToRefs } from 'pinia';
 import { getClientsListService } from '@/app/services/clients.service';
-import { useClientsListStore } from '@/app/components/clients-page/store/clientsList.store';
+import { useClientsListStore } from '@/app/stores/clientsList.store';
 
 
 export const useClientsListComposable = () => {

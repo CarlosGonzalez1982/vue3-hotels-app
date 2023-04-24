@@ -1,4 +1,4 @@
-import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { useAuthStore } from '@/app/stores/auth.store';
 import { checkAuthentication } from "@/app/services/auth.service";
 
 

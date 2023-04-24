@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/vue-query';
 import { getHotelByIdService } from '@/app/services/hotels.service';
 import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
 import Swal from 'sweetalert2';
-import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { useAuthStore } from '@/app/stores/auth.store';
 
 
 const hotelSet = ref<{ [id: number]: GetHotelsListModel }>({});

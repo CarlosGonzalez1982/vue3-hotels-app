@@ -5,7 +5,7 @@ import { useHotelCardComposable } from '@/app/components/hotels-page/composables
 import SpinnerElement from '@/app/components/shared-components/spinner-element/SpinnerElement.component.vue';
 import ModalElement from '@/app/components/shared-components/modal-element/ModalElement.component.vue';
 import { useCounterStore } from '@/app/stores/counterElement';
-import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { useAuthStore } from '@/app/stores/auth.store';
 
 
 const router = useRouter();

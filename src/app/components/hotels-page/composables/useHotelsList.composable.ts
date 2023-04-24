@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/vue-query';
 import { storeToRefs } from 'pinia';
 import { getHotelsListService } from '@/app/services/hotels.service';
 import type { GetHotelsListModel } from '@/app/components/hotels-page/hotels-list/response-model/getHotelsList.model';
-import { useHotelsListStore } from '@/app/components/hotels-page/store/hotelsList.store';
+import { useHotelsListStore } from '@/app/stores/hotelsList.store';
 
 
 const hotels = ref<GetHotelsListModel[]>([]);

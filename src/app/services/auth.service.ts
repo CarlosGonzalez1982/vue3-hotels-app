@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import { authAPI } from '@/environments/authAPI';
 import { CreateUserModel } from '@/app/components/auth-page/register-form/request-model/createUser.model';
 import { LoginUserModel } from '@/app/components/auth-page/login-form/request-model/loginUser.model';
-import { useAuthStore } from '@/app/components/auth-page/store/auth.store';
+import { useAuthStore } from '@/app/stores/auth.store';
 import router from "@/app/router/index.router";
 
 const endpointCreate = ':signUp';
