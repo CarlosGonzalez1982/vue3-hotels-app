@@ -8,12 +8,13 @@ const routeLinks: RouterLink[] = hotelsRoute.children!
     .filter( route => (route.props as { visible: boolean }).visible)
     .map( route => {
 
-    return {
-        name: route.name as string,
-        path: route.path,
-        title: (route.props as { title: string, visible: boolean }).title
+        return {
+            name: route.name as string,
+            path: route.path,
+            title: (route.props as { title: string, visible: boolean }).title
+        }
     }
-});
+);
 </script>
 
 <template>
